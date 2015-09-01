@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   resources :travels
 
   namespace :user do
+    root 'welcome#index'
     resources :travels
   end
 
   namespace :admin do
+    root 'welcome#index'
     resources :travels
   end
 end
