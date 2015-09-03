@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   namespace :user do
     root 'welcome#index'
-    resources :travels
+    resources :travels do
+      collection do
+        get :draft, :done
+      end
+    end
   end
 
   namespace :admin do

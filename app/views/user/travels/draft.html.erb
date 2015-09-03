@@ -1,0 +1,12 @@
+个人中心 草稿箱
+
+<%= link_to '新增游记', new_user_travel_path %>
+
+
+<br />
+
+<% @travels.each do |travel| %>
+  <%= travel.title %>
+  <br />
+  <%= l travel.created_at %> -- <%= link_to '编辑游记', edit_user_travel_path(travel) %>
+<% end %>

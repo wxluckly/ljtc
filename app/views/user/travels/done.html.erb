@@ -1,0 +1,8 @@
+个人中心 游记列表
+<br />
+
+<% @travels.each do |travel| %>
+  <%= travel.title %>
+  <br />
+  <%= l travel.created_at %>
+<% end %>
