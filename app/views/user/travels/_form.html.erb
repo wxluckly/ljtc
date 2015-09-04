@@ -1,10 +1,13 @@
-<%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travels_path(@travel), html: {class: "form-horizontal"}) do |f| %>
+<%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
 <% @travel.errors.full_messages.each do |msg| %>
 <li><%= msg %></li>
 <% end %>
 <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-<%= f.input :title, label: '标题' %>
-<%= f.input :content, as: :kindeditor, label: '内容', input_html: {window_onload: true, filterMode: false} %>
+<%= f.input(:title, label: '标题') %>
+<%= f.input(:line, label: '路线') %>
+<%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"] %>
+<%#= f.input(:content, as: :kindeditor, label: '内容', input_html: {window_onload: true, filterMode: false}) %>
+<%= f.input(:sentiment, label: '总结') %>
 <div class="control-group">
   <div class="controls">
     <%= f.button :submit, "保存" %>

@@ -1,1 +1,32 @@
-后台管理 游记列表
+<div class="row">
+  <div class="span3 pull-right">
+  </div>
+  
+  <div class="span12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>标题</th>
+          <th>内容摘要</th>
+          <th>审核通过</th>
+          <th>紧急冻结</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @travels.each do |travel| %>
+        <tr>
+          <td><%= travel.title %></td>
+          <td><%= travel.content.truncate(10) %></td>
+          <td></td>
+          <td></td>
+          <td>
+            <%= link_to "编辑", edit_travel_path(travel) %>
+            <%= link_to "详情", travel_path(travel) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

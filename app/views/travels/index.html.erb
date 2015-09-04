@@ -1,1 +1,7 @@
 游客查看 游记列表
+
+<% @travels.each do |travel| %>
+  <%= link_to travel.title, travel %>
+  <br />
+  <%= l travel.created_at %>
+<% end %>
