@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :travels
+  resources :areas
 
   namespace :ajax do
     post :like_travel, :share_weibo
+  end
+
+  namespace :sub do
+
   end
 
   namespace :user do
