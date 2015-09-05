@@ -8,7 +8,7 @@
         <tr>
           <th>标题</th>
           <th>内容摘要</th>
-          <th>审核通过</th>
+          <th>审核状态</th>
           <th>紧急冻结</th>
           <th>操作</th>
         </tr>
@@ -18,11 +18,26 @@
         <tr>
           <td><%= travel.title %></td>
           <td><%= travel.content.truncate(10) %></td>
-          <td></td>
-          <td></td>
           <td>
-            <%= link_to "编辑", edit_travel_path(travel) %>
-            <%= link_to "详情", travel_path(travel) %>
+            <% if travel.is_verified? %>
+            已审核
+            <% else %>
+            <%= link_to '审核通过', set_verified_admin_travel_path(travel), remote: true, method: 'PUT', class: 'btn' %>
+            <% end %>
+          </td>
+          <td>
+            <% if travel.is_verified? %>
+            <% if travel.is_blocked? %>
+            <%= link_to '取消冻结', set_unblocked_admin_travel_path(travel), remote: true, method: 'PUT', class: 'btn' %>
+            <% else %>
+            <%= link_to '冻结', set_blocked_admin_travel_path(travel), remote: true, method: 'PUT', class: 'btn' %>
+            <% end %>
+            <% else %>
+            请先进行审核
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "编辑", edit_admin_travel_path(travel), target: '_blank', class: 'btn' %>
           </td>
         </tr>
         <% end %>

@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
+
+$( document ).on("click", "#like_travel", function() {
+  $.ajax({
+    url: "/ajax/like_travel",
+    type: "POST",
+    data: {id: $(this).data('id')},
+    success: function(result) {
+      alert('成功')
+    }
+  })
+});

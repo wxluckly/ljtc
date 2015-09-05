@@ -1,0 +1,11 @@
+用户编辑属性
+
+<%= simple_form_for(@user, as: "user", url: user_update_path(@user), html: {class: "form-horizontal"}, method: 'PUT', remote: true) do |f| %>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+<%= f.input :name, label: '姓名' %>
+<%= f.input :mobile, label: '手机号' %>
+<%= f.button :submit, "保存" %>
+<% end %>

@@ -6,8 +6,14 @@ Rails.application.routes.draw do
 
   resources :travels
 
+  namespace :ajax do
+    post 'like_travel'
+  end
+
   namespace :user do
     root 'welcome#index'
+    get :edit
+    put :update
     resources :travels do
       collection do
         get :draft, :done
@@ -17,6 +23,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'welcome#index'
-    resources :travels
+    resources :travels do
+      member do
+        put :set_verified, :set_blocked, :set_unblocked
+      end
+      collection do
+        get :rank
+      end
+    end
+    resources :users
   end
 end

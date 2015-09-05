@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="span3 pull-right">
+  </div>
+  
+  <div class="span12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>标题</th>
+          <th>内容摘要</th>
+          <th>喜欢数</th>
+          <th>浏览数</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @travels.each do |travel| %>
+        <tr>
+          <td><%= travel.title %></td>
+          <td><%= travel.content.truncate(10) %></td>
+          <td><%= travel.like_count %></td>
+          <td><%= travel.read_count %></td>
+          <td>
+            <%= link_to "编辑", edit_admin_travel_path(travel), target: '_blank', class: 'btn' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

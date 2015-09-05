@@ -4,7 +4,6 @@
   <title>游记后台管理</title>
   <%= render "basic_css" %>
   <%= stylesheet_link_tag 'admin', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'admin' %>
   <%= csrf_meta_tags %>
 </head>
@@ -15,8 +14,14 @@
         <a class="brand" href="/admin">游记后台管理</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li <% if current_page?(controller: 'travels') %>class="active"<% end %>>
+            <li <% if current_page?(controller: 'travels', action: 'index') %>class="active"<% end %>>
               <%= link_to "游记管理", admin_travels_path %>
+            </li>
+            <li <% if current_page?(controller: 'users') %>class="active"<% end %>>
+              <%= link_to "用户管理", admin_users_path %>
+            </li>
+            <li <% if current_page?(controller: 'travels', action: 'rank') %>class="active"<% end %>>
+              <%= link_to "游记排名", rank_admin_travels_path %>
             </li>
           </ul>
           <ul class="nav pull-right">

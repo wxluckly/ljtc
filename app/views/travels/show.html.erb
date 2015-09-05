@@ -3,3 +3,9 @@
 <%= @travel.title %><br />
 
 <%= @travel.content %><br />
+
+浏览数：<%= @travel.read_count %>
+
+喜欢数：<%= @travel.like_count %>
+
+<a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>'>喜欢</a>
