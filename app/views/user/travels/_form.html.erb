@@ -2,15 +2,26 @@
 <% @travel.errors.full_messages.each do |msg| %>
 <li><%= msg %></li>
 <% end %>
-<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+<%= tag(:input, type: "hidden", name: '[travel]is_finished', id: 'is_finished', value: false) %>
+<%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
 <%= f.input(:title, label: '标题') %>
 <%= f.input(:line, label: '路线') %>
+<%= f.input(:cover, label: '上传封面') %>
 <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"] %>
-<%#= f.input(:content, as: :kindeditor, label: '内容', input_html: {window_onload: true, filterMode: false}) %>
-<%= f.input(:sentiment, label: '总结') %>
+<%= f.input(:sentiment, label: '游记总结') %>
 <div class="control-group">
   <div class="controls">
-    <%= f.button :submit, "保存" %>
+    <%= f.button :submit, "保存草稿" %>
+    <%= f.button :button, "上传游记", id: 'finished_btn' %>
   </div>
 </div>
 <% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $('#finished_btn').click(function(){
+      $('#is_finished').val(true);
+      $('#new_travel').submit();
+    })
+  })
+</script>

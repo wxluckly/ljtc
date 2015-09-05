@@ -7,6 +7,6 @@
 
 <% @travels.each do |travel| %>
   <%= travel.title %>
-  <br />
   <%= l travel.created_at %> -- <%= link_to '编辑游记', edit_user_travel_path(travel) %>
+  <br />
 <% end %>

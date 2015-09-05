@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :travels
 
   namespace :ajax do
-    post 'like_travel'
+    post :like_travel, :share_weibo
   end
 
   namespace :user do

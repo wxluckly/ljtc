@@ -3,11 +3,11 @@ class User::TravelsController < User::BaseController
   end
 
   def draft
-    @travels = current_user.travels
+    @travels = current_user.travels.draft
   end
 
   def done
-    @travels = current_user.travels
+    @travels = current_user.travels.done
   end
 
   def new
@@ -45,7 +45,7 @@ class User::TravelsController < User::BaseController
 
   private
   def travel_params
-    params.require(:travel).permit(:title, :content, :sentiment, :line)
+    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id)
   end
 
 end
