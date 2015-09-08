@@ -250,34 +250,34 @@
           <ul class="theme-activities clearfix">
             <li>
               <div class="theme-content">
-                <a href="javascript:;">
+                <a href="/sub/event_one">
                   <%= image_tag 'theme_07.jpg', width: "490", height: "160" %>
                 </a>
-                <a class="theme-title" href="javascript:;">我是最美风景 ——9月21日-9月30日</a>
+                <a class="theme-title" href="/sub/event_one">我是最美风景 ——9月21日-9月30日</a>
               </div>
             </li>
             <li>
               <div class="theme-content">
-                <a href="javascript:;">
+                <a href="/sub/event_two">
                   <%= image_tag 'theme_09.jpg', width: "490", height: "160" %>
                 </a>
-                <a class="theme-title" href="javascript:;">最爱心中那一瞬 ——10月8日-10月18日</a>
+                <a class="theme-title" href="/sub/event_two">最爱心中那一瞬 ——10月8日-10月18日</a>
               </div>
             </li>
             <li>
               <div class="theme-content">
-                <a href="javascript:;">
+                <a href="/sub/event_three">
                   <%= image_tag 'theme_12.jpg', width: "490", height: "160" %>
                 </a>
-                <a class="theme-title" href="javascript:;">舌尖上的全世界 ——10月19日-10月25日</a>
+                <a class="theme-title" href="/sub/event_three">舌尖上的全世界 ——10月19日-10月25日</a>
               </div>
             </li>
             <li>
               <div class="theme-content">
-                <a href="javascript:;">
+                <a href="/sub/event_four">
                   <%= image_tag 'theme_13.jpg', width: "490", height: "160" %>
                 </a>
-                <a class="theme-title" href="javascript:;">跨越地球去睡你 ——10月26日-10月31日</a>
+                <a class="theme-title" href="/sub/event_four">跨越地球去睡你 ——10月26日-10月31日</a>
               </div>
             </li>
           </ul>
@@ -292,6 +292,10 @@
 <% content_for :js do %>
 <!-- 文字滚动 -->
 <script type="text/javascript"> 
+  $('.ck-slide').ckSlide({
+    autoPlay: true
+  });
+
   function autoScroll(obj){  
     $(obj).find("ul").animate({  
       marginTop : "-25px"  

@@ -1,11 +1,122 @@
-游客查看 游记详情<br />
+<div class="wrap wrap-grey">
+  <%= render 'header' %>
 
-<%= @travel.title %><br />
+  <div class="details-banner">
+    <div class="head-details"><!-- 可更换背景图片 -->
+      <div class="details-title">
+        <h1>
+          <a href="javascript:;">法国巴黎 24小时 | 咖啡 生活 美食</a>
+        </h1>
+      </div>
+    </div>
+    <div class="details-mark">
+      <div class="inner-module clearfix">
+        <div class="mark-left">
+          <div class="mark-left-inner">
+            <a class="face-img" href="javascript:;">
+              <img src="images/face.jpg" height="120" width="120">
+            </a>
+            <p class="clearfix">
+              <span>作者：苹果姐姐</span>
+              <span class="detail-time">2015-09-15</span>
+              <span class="glance"><%= @travel.read_count %>人</span>  
+            </p>
+          </div>
+        </div>
+        <div class="mark-right">
+          <div class="clearfix">
+            <a class="target-addr" href="javascript:;">欧洲</a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like">喜欢<em><%= @travel.like_count %></em></a>
+            <a class="share" href="javascript:;">分享<em>456</em></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= @travel.content %><br />
+  <div class="main">
+    <div class="inner-module details-grey">
+      <div class="details-container clearfix">
+        <div class="details-left-bar">
+          <div class="block-module">
+            <h2>攻略路线：<span id="line-t"></span></h2>
+            <div class="travel-line">
+              上海 — 巴黎 — 巴黎歌剧院 — 香榭丽舍大道 — 埃菲尔铁塔 — 巴士底 — 巴黎圣母院 — 尼斯 — 北京
+            </div>
+          </div>
+          <div class="block-module">
+            <h2>攻略记录：<span id="record-t"></span></h2>
+            <div class="travel-record">
+              <%= raw @travel.content %>
+            </div>
+          </div>
+          <div class="block-module">
+            <h2>旅程总结：<span id="summary-t"></span></h2>
+            <div>
+              <p>
+                能看到这的果然都是真爱！！谢谢你们能耐心的看完。这次欧洲之行大概是我人生中最最开心最最难忘的一段经历了。世界这么大，每一处地方都要自己用心去体验才会有不一般的感受，只有自己不断的去做功课，diy路线行程，才能脑补自己对每一个地方的了解。虽然过程繁琐，有时候会很累，但是美景带来的快乐是用钱都买不到的。最后，希望每个驴友都能在对的时间遇到对的人，你带着TA，TA带着钱，任性的走遍全世界～
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="details-right-bar">
+          <div class="right-nav">
+            <ul>
+              <li>
+                <h4>攻略目录</h4>
+              </li>
+              <li class="right1">
+                <a class="current" href="#line-t">攻略路线</a>
+              </li>
+              <li class="right2">
+                <a href="#record-t">旅程记录</a>
+              </li>
+              <li class="right3">
+                <a href="#summary-t">旅程总结</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-浏览数：<%= @travel.read_count %>
+  <%= render 'footer' %>
+</div>
 
-喜欢数：<%= @travel.like_count %>
+<% content_for :js do %>
+<script type="text/javascript">
+  $(document).ready(function(){
 
-<a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>'>喜欢</a>
+      //固定顶部导航
+      var headHeight=$(".details-banner").height();
+      var nav=$(".details-mark");
+      $(window).scroll(function(){
+        if($(this).scrollTop()>headHeight){
+          nav.addClass("navFix");
+        }
+        else{
+          nav.removeClass("navFix");
+        }
+      });
+
+      var nav2=$(".right-nav");
+      $(window).scroll(function(){
+        if($(this).scrollTop()>headHeight){
+          nav2.addClass("navFix");
+        }
+        else{
+          nav2.removeClass("navFix");
+        }
+      });
+
+      //攻略目录
+      $('.right-nav ul > li > a').click(function(){
+        $(this).addClass('current').parent('li').siblings().children().removeClass('current');
+      })
+
+    }) 
+</script>
+<% end %>
+
+
