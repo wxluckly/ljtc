@@ -1,1 +1,338 @@
-网站首页
+<div class="wrap">  <!-- 此处class有的页面会有添加 class="wrap wrap-grey" -->
+  <%= render 'header' %>
+  <div class="banner-module">
+    <div class="main_visual">
+      <div class="flicking_con">
+        <a href="javascript:;">1</a>
+        <a href="javascript:;">2</a>
+        <a href="javascript:;">3</a>
+      </div>
+      <div class="main_image">
+        <ul>
+          <li><a href="huodong.shtml" class="img_1"></a></li>
+          <li><a href="javascript:;" class="img_2"></a></li>
+          <li><a href="edit-zhuti.shtml" class="img_3"></a></li>
+        </ul>
+        <a href="javascript:;" id="btn_prev"></a>
+        <a href="javascript:;" id="btn_next"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="inner-module">
+      <div class="container">
+        <h2 class="title clearfix">
+          <span>全球热门</span>
+        </h2>
+        <div class="content">
+          <ul class="hot-address clearfix">
+            <li>
+              <a href="javascript:;">
+                <%= image_tag 'zhou_03.jpg', width: "320", height: "260" %>
+              </a>
+            </li>
+            <li>
+              <a href="ouzhou.shtml">
+                <%= image_tag 'zhou_04.jpg', width: "320", height: "120" %>
+              </a>
+              <a href="javascript:;">
+                <%= image_tag 'zhou_10.jpg', width: "320", height: "120" %>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <%= image_tag 'zhou_06.jpg', width: "320", height: "120" %>
+              </a>
+              <a href="javascript:;">
+                <%= image_tag 'zhou_12.jpg', width: "320", height: "120" %>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content hui-img">
+          <a target="_blank" class="product-link" href="http://www.icbc.com.cn/ICBC/%E5%B9%BF%E5%91%8A%E9%A1%B5%E9%9D%A2/%E7%BD%91%E7%AB%99%E5%AE%A3%E4%BC%A0%E5%B9%BF%E5%91%8A%E9%A1%B5%E9%9D%A2/%E6%80%BB%E8%A1%8C%E5%B9%BF%E5%91%8A%E9%A1%B5%E9%9D%A2/2015/0112%E4%B8%AA%E4%BA%BA%E7%BB%93%E5%94%AE%E6%B1%87/0112%E4%B8%AA%E4%BA%BA%E7%BB%93%E5%94%AE%E6%B1%87.htm">
+            <%= image_tag 'hui.jpg', width: "1000", height: "265" %>
+          </a>
+        </div>
+        <div class="bottom-line"></div>
+      </div>
+
+      <div class="container">
+        <div class="clearfix">
+          <div class="left-bar">
+            <h2 class="title clearfix">
+              <span>精选攻略</span>
+              <!-- <a class="more" href="javascript:;">更多</a> -->
+            </h2>
+            <div class="content">
+              <ul class="list-content">
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="javascript:;">
+                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="detail.shtml">【腌鱼的画】记得那一片宁静的海</a>
+                      </h3>
+                      <p class="summary">
+                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：yannycat</span>
+                        <span>2015-09-15</span>
+                        <span class="icon-heart">219</span>
+                        <span class="from">来自：大洋洲 版</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottom-line1"></div>
+                </li>
+
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="javascript:;">
+                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="javascript:;">【腌鱼的画】记得那一片宁静的海</a>
+                      </h3>
+                      <p class="summary">
+                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：yannycat</span>
+                        <span>2015-09-15</span>
+                        <span class="icon-heart">219</span>
+                        <span class="from">来自：大洋洲 版</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottom-line1"></div>
+                </li>
+
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="javascript:;">
+                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="javascript:;">【腌鱼的画】记得那一片宁静的海</a>
+                      </h3>
+                      <p class="summary">
+                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：yannycat</span>
+                        <span>2015-09-15</span>
+                        <span class="icon-heart">219</span>
+                        <span class="from">来自：大洋洲 版</span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="javascript:;">
+                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="javascript:;">【腌鱼的画】记得那一片宁静的海</a>
+                      </h3>
+                      <p class="summary">
+                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：yannycat</span>
+                        <span>2015-09-15</span>
+                        <span class="icon-heart">219</span>
+                        <span class="from">来自：大洋洲 版</span>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="right-bar">
+            <!-- 活动规则begin -->
+            <h2 class="title clearfix">
+              <span>活动规则</span>
+            </h2>
+            <div class="content">
+              <div class="active-rule">
+                <h4>活动时间:</h4>
+                <p class="rule-time">
+                  2015年9月21日——10月31日。
+                </p>
+                <h4>参与方式:</h4>
+                <p class="clearfix">
+                  在活动主题页面中注册您的个人信息，上传自己原创的境外旅游攻略，并分享至新浪微博，就有机会获得活动大奖价值2000元的工商银行融e购电子券。<a class="more right" href="huodong.shtml">更多</a>
+                </p>
+              </div>
+            </div>
+            <!-- 中奖名单end -->
+            <div class="bottom-line"></div>
+
+            <!-- 中奖名单begin -->
+            <h2 class="title clearfix">
+              <span>中奖名单</span>
+            </h2>
+            <div class="content">
+              <div class="topRec_List">
+                <dl>
+                  <dd>中奖人姓名</dd>
+                  <dd>手机号</dd>
+                </dl>
+                <div class="maquee">
+                  <ul>
+                    <li>
+                      <div>董小姐</div>
+                      <div>187****3241</div>
+                    </li> 
+                    <li>
+                      <div>戴先生</div>
+                      <div>187****6208</div>
+                    </li> 
+                    <li>
+                      <div>秦先生</div>
+                      <div>187****6208</div>
+                    </li> 
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- 结售汇指南begin -->
+            <div class="bottom-line"></div>
+
+            <!-- 活动规则end -->
+            <h2 class="title clearfix">
+              <span>结售汇指南</span>
+            </h2>
+            <div class="content">
+              <div class="ck-slide">
+                <ul class="ck-slide-wrapper">
+                  <li>
+                    <a target="_blank" href="http://www.icbc.com.cn/icbc/%e9%87%91%e8%9e%8d%e5%b8%82%e5%9c%ba%e4%b8%93%e5%8c%ba/%e4%ba%a7%e5%93%81%e6%9c%8d%e5%8a%a1/%e6%8a%95%e8%b5%84%e4%ba%a4%e6%98%93%e7%b1%bb%e4%ba%a7%e5%93%81/%e5%8d%b3%e6%9c%9f%e7%bb%93%e5%94%ae%e6%b1%87/default.htm"><%= image_tag 'a-img.jpg', width: "320", height: "120" %></a>
+                  </li>
+                  <li style="display:none">
+                    <a target="_blank" href="http://www.icbc.com.cn/icbc/%e9%87%91%e8%9e%8d%e5%b8%82%e5%9c%ba%e4%b8%93%e5%8c%ba/%e9%87%91%e8%9e%8d%e5%b8%82%e5%9c%ba%e5%ad%a6%e8%8b%91/%e7%83%ad%e7%82%b9%e9%97%ae%e7%ad%94/%e4%b8%ad%e5%9b%bd%e5%b7%a5%e5%95%86%e9%93%b6%e8%a1%8c%e4%b8%aa%e4%ba%ba%e7%bb%93%e5%94%ae%e6%b1%87%e4%b8%9a%e5%8a%a1%e7%9f%a5%e8%af%86%e9%97%ae%e7%ad%94.htm#1"><%= image_tag 'b-img.jpg', width: "320", height: "120" %></a>
+                  </li>
+                </ul>
+                <a href="javascript:;" class="ctrl-slide ck-prev">上一张</a> <a href="javascript:;" class="ctrl-slide ck-next">下一张</a>
+                <div class="ck-slidebox">
+                  <div class="slideWrap">
+                    <ul class="dot-wrap">
+                      <li class="current"><em>1</em></li>
+                      <li><em>2</em></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 结售汇指南end -->
+          </div>
+        </div>
+        <div class="bottom-line"></div>
+      </div>
+
+      <div class="container">
+        <h2 class="title clearfix">
+          <span>主题活动</span>
+        </h2>
+        <div class="content">
+          <ul class="theme-activities clearfix">
+            <li>
+              <div class="theme-content">
+                <a href="javascript:;">
+                  <%= image_tag 'theme_07.jpg', width: "490", height: "160" %>
+                </a>
+                <a class="theme-title" href="javascript:;">我是最美风景 ——9月21日-9月30日</a>
+              </div>
+            </li>
+            <li>
+              <div class="theme-content">
+                <a href="javascript:;">
+                  <%= image_tag 'theme_09.jpg', width: "490", height: "160" %>
+                </a>
+                <a class="theme-title" href="javascript:;">最爱心中那一瞬 ——10月8日-10月18日</a>
+              </div>
+            </li>
+            <li>
+              <div class="theme-content">
+                <a href="javascript:;">
+                  <%= image_tag 'theme_12.jpg', width: "490", height: "160" %>
+                </a>
+                <a class="theme-title" href="javascript:;">舌尖上的全世界 ——10月19日-10月25日</a>
+              </div>
+            </li>
+            <li>
+              <div class="theme-content">
+                <a href="javascript:;">
+                  <%= image_tag 'theme_13.jpg', width: "490", height: "160" %>
+                </a>
+                <a class="theme-title" href="javascript:;">跨越地球去睡你 ——10月26日-10月31日</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="bottom-line-white"></div>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer' %>
+</div>
+
+<% content_for :js do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      //固定顶部导航
+      var headHeight=$(".header").height();
+      var nav=$(".nav");
+      $(window).scroll(function(){
+        if($(this).scrollTop()>headHeight){
+          nav.addClass("navFix");
+        }
+        else{
+          nav.removeClass("navFix");
+        }
+      });
+
+      //下拉框
+      
+      $(".user-center ul").hide();
+      $('.logged-on').mouseover(function(){
+        $(".user-center ul").show();
+      });
+      $('.logged-on').mouseout(function(){
+        $(".user-center ul").hide();
+      });
+
+      $('.ck-slide').ckSlide({
+        autoPlay: true
+      });
+    }) 
+</script>
+
+<!-- 文字滚动 -->
+<script type="text/javascript"> 
+  function autoScroll(obj){  
+    $(obj).find("ul").animate({  
+      marginTop : "-25px"  
+    },500,function(){  
+      $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);  
+    })  
+  }  
+  $(function(){  
+    setInterval('autoScroll(".maquee")',3000);          
+  }) 
+
+</script> 
+<% end %>

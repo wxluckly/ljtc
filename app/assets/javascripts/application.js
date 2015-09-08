@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
+//= require plugins/jquery.event.drag-1.5.min
+//= require plugins/jquery.touchSlider
+//= require plugins/banner
+//= require plugins/slide
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({

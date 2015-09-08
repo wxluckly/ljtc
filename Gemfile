@@ -24,6 +24,7 @@ gem 'will_paginate', '3.0.7'
 gem 'simple_form', '3.1.0'
 gem 'ancestry', '2.1.0'
 gem 'mini_exiftool', '2.5.0'
+gem 'settingslogic'
 
 # 权限验证
 gem 'devise', '3.4.1'

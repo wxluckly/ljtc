@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# 加载全局配置
+require File.expand_path('../settings', __FILE__)
+
 module Ljtc
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,5 +26,11 @@ module Ljtc
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_mailer.default_url_options = { :host => 'localhost' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = Setting::Smtp["config"].to_options
   end
 end

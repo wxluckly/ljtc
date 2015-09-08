@@ -1,0 +1,12 @@
+defaults: &defaults
+  config:
+    address: smtp.163.com
+    user_name: thinkgrand_poster@163.com
+    password: ""
+    port: 25
+    authentication: :plain
+    enable_starttls_auto: true
+    domain: '163.com'
+
+development:
+  <<: *defaults
