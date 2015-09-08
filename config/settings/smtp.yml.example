@@ -1,7 +1,7 @@
 defaults: &defaults
   config:
     address: smtp.163.com
-    user_name: thinkgrand_poster@163.com
+    user_name: ljtctravel_poster@163.com
     password: ""
     port: 25
     authentication: :plain
