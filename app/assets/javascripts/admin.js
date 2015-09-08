@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
-//= require jquery/jquery.validate.js
-//= require jquery/jquery.form.js
-//= require jquery-ui/dialog
+//= require plugins/jquery.validate.js
+//= require plugins/jquery.form.js
 //= require twitter/bootstrap
 //= require kindeditor
