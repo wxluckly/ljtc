@@ -17,3 +17,4 @@
 /tmp
 public/uploads/*
 config/settings/smtp.yml
+config/initializers/devise.rb
