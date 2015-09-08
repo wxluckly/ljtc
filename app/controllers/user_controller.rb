@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  layout 'application'
+  
   def edit
     @user = current_user
   end

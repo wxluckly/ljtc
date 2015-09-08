@@ -10,6 +10,7 @@
       </li>
       <li class="login">
         <div class="clearfix">
+          <% if current_user %>
           <!-- 登录状态 -->
           <div class="logged-on">
             <div class="personal clearfix">
@@ -29,24 +30,58 @@
                     <a href="youji-caogao.shtml">我的攻略</a>
                   </li>
                   <li class="my-profile">
-                    <a href="my-profile.shtml">我的资料</a>
+                    <a href="/user/edit">我的资料</a>
                   </li>
                   <li class="exit">
-                    <a href="javascript:;">退出账号</a>
+                    <a href="<%= destroy_user_session_path  %>" data-method='delete' >退出账号</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-
+          <% else %>
           <!-- 未登录状态 -->
           <span class="user-link">
-            <a href="register.shtml">注册</a>
+            <a href="/users/sign_up">注册</a>
             <span>|</span>
-            <a href="login.shtml">登录</a>
+            <a href="/users/sign_in">登录</a>
           </span>
+          <% end %>
         </div>
       </li>
     </ul>
   </div>
 </div>
+
+<% content_for :js do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      //固定顶部导航
+      var headHeight=$(".header").height();
+      var nav=$(".nav");
+      $(window).scroll(function(){
+        if($(this).scrollTop()>headHeight){
+          nav.addClass("navFix");
+        }
+        else{
+          nav.removeClass("navFix");
+        }
+      });
+
+      //下拉框
+      
+      $(".user-center ul").hide();
+      $('.logged-on').mouseover(function(){
+        $(".user-center ul").show();
+      });
+      $('.logged-on').mouseout(function(){
+        $(".user-center ul").hide();
+      });
+
+      $('.ck-slide').ckSlide({
+        autoPlay: true
+      });
+    }) 
+</script>
+<% end %>

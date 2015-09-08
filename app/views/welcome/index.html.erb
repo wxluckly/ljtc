@@ -290,37 +290,6 @@
 </div>
 
 <% content_for :js do %>
-<script type="text/javascript">
-  $(document).ready(function(){
-
-      //固定顶部导航
-      var headHeight=$(".header").height();
-      var nav=$(".nav");
-      $(window).scroll(function(){
-        if($(this).scrollTop()>headHeight){
-          nav.addClass("navFix");
-        }
-        else{
-          nav.removeClass("navFix");
-        }
-      });
-
-      //下拉框
-      
-      $(".user-center ul").hide();
-      $('.logged-on').mouseover(function(){
-        $(".user-center ul").show();
-      });
-      $('.logged-on').mouseout(function(){
-        $(".user-center ul").hide();
-      });
-
-      $('.ck-slide').ckSlide({
-        autoPlay: true
-      });
-    }) 
-</script>
-
 <!-- 文字滚动 -->
 <script type="text/javascript"> 
   function autoScroll(obj){  

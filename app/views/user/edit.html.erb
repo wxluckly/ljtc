@@ -1,11 +1,56 @@
-用户编辑属性
+<div class="wrap">
+  <%= render 'header' %>
 
-<%= simple_form_for(@user, as: "user", url: user_update_path(@user), html: {class: "form-horizontal"}, method: 'PUT', remote: true) do |f| %>
-<% @user.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-<%= f.input :name, label: '姓名' %>
-<%= f.input :mobile, label: '手机号' %>
-<%= f.button :submit, "保存" %>
-<% end %>
+  <div class="head-profile">
+    <div class="inner-module">
+      <a class="profile-img" href="javascript:;">
+        <img src="images/face.jpg" width="148" height="148">
+      </a>
+      <p>Rabbit</p>
+      <p>
+        <a href="youji-caogao.shtml">我的攻略</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="inner-module">
+      <div class="form-module">
+        <h2 class="form-title">我的资料</h2>
+        <%= simple_form_for(@user, as: "user", url: user_update_path(@user), html: {class: "form-horizontal"}, method: 'PUT', remote: true) do |f| %>
+        <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+        <div class="form-row clearfix">
+          <label><em>*</em>用户昵称：</label>
+          <input type="text" value="" />
+        </div>
+
+        <div class="form-row clearfix">
+          <label><em>*</em>我的密码：</label>
+          <%= f.input :password, type: 'password', label: false %>
+        </div>
+
+        <div class="form-row clearfix">
+          <label><em>*</em>真实姓名：</label>
+          <%= f.input :name, type: 'text', label: false %>
+        </div>
+
+        <div class="form-row clearfix">
+          <label><em>*</em>电话号码：</label>
+          <%= f.input :mobile, type: 'text', label: false %>
+        </div>
+
+        <div class="form-row clearfix">
+          <label><em>*</em>邮箱地址：</label>
+          <%= f.input :email, type: 'text', label: false %>
+        </div>
+
+        <div class="form-row clearfix">
+          <input class="btn btn-save" type="submit" value="保存" />
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'footer' %>
+</div>
