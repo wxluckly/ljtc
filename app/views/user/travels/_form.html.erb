@@ -102,14 +102,13 @@
   $(document).ready(function(){
 
     //获取焦点
-    $('.edit-box ul li:eq(0)').children('i').addClass('focus');
-    $('.edit-box ul li').mouseover(function(){
-      $(this).children('i').addClass('focus');
-    });
-    $('.edit-box ul li').mouseout(function(){
-      $(this).children('i').removeClass('focus');
-      $(this).parent('ul').children('li').eq(0).children('i').addClass('focus');
-    });
+
+      $('.edit-box ul li').mouseover(function(){
+        $(this).children('i').addClass('focus');
+      });
+      $('.edit-box ul li').mouseout(function(){
+        $(this).children('i').removeClass('focus');
+      });
 
   })
 
