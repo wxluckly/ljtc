@@ -1,8 +1,68 @@
-个人中心 游记列表
-<br />
+<div class="wrap">
+  <%= render 'header' %>
 
-<% @travels.each do |travel| %>
-  <%= travel.title %>
-  <%= l travel.created_at %>
-  <br />
-<% end %>
+  <div class="head-profile">
+    <div class="inner-module">
+      <a class="profile-img" href="javascript:;">
+        <img src="images/face.jpg" width="148" height="148">
+      </a>
+      <p>Rabbit</p>
+      <p>
+        <a href="my-profile.shtml">我的资料</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="inner-module">
+      <div>
+        <div class="box demo2">
+          <ul class="tab_menu">
+            <li class="line-right current">已发布的攻略</li>
+            <a href="/user/travels/draft"><li>草稿箱</li></a>
+          </ul>
+          <div class="tab_box">
+            <div class="tab-inner">
+              <ul class="list-content">
+                <% @travels.each do |travel| %>
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="javascript:;">
+                      <img src="images/list.jpg" width="320" height="190" />
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="detail.shtml"><%= travel.title %></a>
+                      </h3>
+                      <p class="summary">
+                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                      </p>
+                      <p class="small-text clearfix">
+                        <span class="icon-time"><%= l travel.created_at %></span>
+                        <span class="icon-pepole">20人</span>
+                        <span class="icon-heart">219</span>
+                        <span class="from">来自：大洋洲 版</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottom-line1"></div>
+                </li>
+                <% end %>
+
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="<%= new_user_travel_path %>">
+                      <%= image_tag 'add.jpg', width: '320', height: '190' %>
+                    </a>
+                    <div class="list-description">&nbsp;</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!--demo2 end-->
+      </div>
+    </div>
+  </div>
+  <%= render 'footer' %>
+</div>

@@ -1,3 +1,169 @@
+<div class="wrap">
+  <%= render 'header' %>
+
+  <div class="main">
+    <div class="inner-module">
+      <div class="edit-box">
+        <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
+          <ul>
+            <li class="clearfix">
+              <i class="num-bg focus">1</i>
+              <span class="edit-title">选择板块</span>
+              <div class="edit-content">
+                <div class="edit-content-inner">
+                  <em>*</em>
+                  <div class="a-list clearfix">
+                    <a class="active" href="javascript:;">亚洲</a>
+                    <a href="javascript:;">欧洲</a>
+                    <a href="javascript:;">美洲</a>
+                    <a href="javascript:;">大洋洲</a>
+                    <a href="javascript:;">非洲</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="clearfix">
+              <i class="num-bg">2</i>
+              <span class="edit-title">编写标题</span>
+              <div class="edit-content2">
+                <div class="edit-content-inner">
+                  <em>*</em>
+                  <%= f.input(:title, label: false, placeholder: "编写标题，标题文字不超过20字", type: 'text' ) %>
+                </div>
+              </div>
+            </li>
+
+            <li class="clearfix">
+              <i class="num-bg">3</i>
+              <span class="edit-title">填写路线</span>
+              <div class="edit-content2">
+                <div class="edit-content-inner">
+                  <em>*</em>
+                  <%= f.input(:line, label: false, placeholder: "填写路线，例如：北京—巴厘岛—大溪地—北京", type: 'text') %>
+                </div>
+              </div>
+            </li>
+
+            <li class="clearfix">
+              <i class="num-bg">4</i>
+              <span class="edit-title">上传封面</span>
+              <div class="edit-content2">
+                <div class="edit-content-inner">
+                  <em>*</em>
+                  <div class="input-div">
+                    <div class="clearfix">
+                      <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
+                      <input class="img-btn" type="button" id="image1" value="选择图片" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="clearfix">
+              <i class="num-bg">4</i>
+              <span class="edit-title">攻略内容</span>
+              <div class="edit-content2">
+                <div class="edit-content-inner">
+                  <em>*</em>
+                  <div class="input-div">
+                    <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"] %>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="clearfix">
+              <i class="num-bg">5</i>
+              <span class="edit-title">攻略总结</span>
+              <div class="edit-content2">
+                <div class="edit-content-inner">
+                  <textarea>总结：例如旅行感悟等等</textarea>
+                </div>
+                <div class="all-submit">
+                  <div class="clearfix">
+                    <div class="form-rules">
+                      <input class="checked-icon" id="rules-link" type="checkbox" />
+                      <label for="rules-link">我已仔细阅读活动条款内容</label>
+                    </div>
+                    <input class="btn-up" type="submit" value="上传攻略" />
+                    <input class="btn-link" type="submit" value="保存草稿" />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render 'footer' %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      //获取焦点
+
+      $('.edit-box ul li:eq(0)').children('i').addClass('focus');
+      $('.edit-box ul li').mouseover(function(){
+        $(this).children('i').addClass('focus');
+      });
+      $('.edit-box ul li').mouseout(function(){
+        $(this).children('i').removeClass('focus');
+        $(this).parent('ul').children('li').eq(0).children('i').addClass('focus');
+      });
+
+    }) 
+</script>
+
+<script type="text/javascript">
+    //上传图片
+    KindEditor.ready(function(K) {
+      var editor = K.editor({
+        allowFileManager : true
+      });
+      K('#image1').click(function() {
+        editor.loadPlugin('image', function() {
+          editor.plugin.imageDialog({
+            imageUrl : K('#url1').val(),
+            clickFn : function(url, title, width, height, border, align) {
+              K('#url1').val(url);
+              editor.hideDialog();
+            }
+          });
+        });
+      });
+      K('#image2').click(function() {
+        editor.loadPlugin('image', function() {
+          editor.plugin.imageDialog({
+            showLocal : false,
+            imageUrl : K('#url2').val(),
+            clickFn : function(url, title, width, height, border, align) {
+              K('#url2').val(url);
+              editor.hideDialog();
+            }
+          });
+        });
+      });
+      K('#image3').click(function() {
+        editor.loadPlugin('image', function() {
+          editor.plugin.imageDialog({
+            showRemote : false,
+            imageUrl : K('#url3').val(),
+            clickFn : function(url, title, width, height, border, align) {
+              K('#url3').val(url);
+              editor.hideDialog();
+            }
+          });
+        });
+      });
+    });
+</script>
+
+
+
 <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
 <% @travel.errors.full_messages.each do |msg| %>
 <li><%= msg %></li>
