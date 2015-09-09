@@ -14,7 +14,9 @@
               <div class="edit-content-inner">
                 <em>*</em>
                 <div class="a-list clearfix">
-                  <%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
+                  <div class="clearfix">
+                    <%= f.collection_radio_buttons(:area_id, Travel.areas.value_label_map.to_a, :first, :last) %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,20 +99,42 @@
   <%= render 'footer' %>
 </div>
 
+<%
+form_for @travel do |f|
+  f.collection_radio_buttons :area_id, [[true, 'Yes'] ,[false, 'No']], :first, :last
+end
+%>
+
 <% content_for :js do %>
 <script type="text/javascript">
   $(document).ready(function(){
 
     //获取焦点
 
-      $('.edit-box ul li').mouseover(function(){
-        $(this).children('i').addClass('focus');
-      });
-      $('.edit-box ul li').mouseout(function(){
-        $(this).children('i').removeClass('focus');
+    $('.edit-box ul li').mouseover(function(){
+      $(this).children('i').addClass('focus');
+    });
+    $('.edit-box ul li').mouseout(function(){
+      $(this).children('i').removeClass('focus');
+    });
+
+    $('.a-list label').addClass('label-check');
+
+      //自定义单选框
+      $('.a-list input').each(function(){
+        var self = $(this),
+        label = self.next(),
+        label_text = label.text();
+
+        label.remove();
+        self.iCheck({
+          checkboxClass: 'icheckbox_line-red',
+          radioClass: 'iradio_line-red',
+          insert: '<div class="icheck_line-icon"></div>' + label_text
+        });
       });
 
-  })
+    })
 
   $(function(){
     $('#finished_btn').click(function(){

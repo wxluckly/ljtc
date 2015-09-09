@@ -17,6 +17,7 @@
 //= require plugins/jquery.touchSlider
 //= require plugins/banner
 //= require plugins/slide
+//= require plugins/icheck
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({
