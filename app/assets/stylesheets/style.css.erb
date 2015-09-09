@@ -67,11 +67,12 @@ div.flicking_con a.on{background-position:0 -21px}
 /* banner-mini
 ========================================================================== */
 .ck-slide { width: 320px; height: 120px; margin: 0 auto;}
-.ck-slide ul.ck-slide-wrapper { height: 120px;}
+.ck-slide ul.ck-slide-wrapper { width: 100%; height: 120px;}
 .ck-slide ul { margin: 0; padding: 0; list-style-type: none;}
 .ck-slide { position: relative; overflow: hidden;}
 .ck-slide ul.ck-slide-wrapper { position: absolute; top: 0; left: 0; z-index: 1; margin: 0; padding: 0;}
 .ck-slide ul.ck-slide-wrapper li { position: absolute;}
+.ck-slide ul.ck-slide-wrapper li a { display: block; width: 100%; height: 100%;}
 .ck-slide .ck-prev, .ck-slide .ck-next { display: none; position: absolute; top: 50%; z-index: 2; width: 35px; height: 70px; margin-top: -35px; border-radius: 3px; opacity: .15; background: red; text-indent: -9999px; background-repeat: no-repeat; transition: opacity .2s linear 0s;}
 .ck-slide .ck-prev { left: 5px; background: url(<%= image_url "arrow-left.png" %>) #000 50% no-repeat;}
 .ck-slide .ck-next { right: 5px; background: url(<%= image_url "arrow-right.png" %>) #000 50% no-repeat;}
@@ -104,7 +105,7 @@ div.flicking_con a.on{background-position:0 -21px}
 ========================================================================== */
 .left-bar{ float: left; width: 660px;}
 .right-bar{ float: right; width: 320px;}
-.right-bar .title{ margin-bottom: 20px;}
+.right-bar .title{ margin-bottom: 30px;}
 .bottom-line1{ margin: 20px 0; width: 100%; height: 1px; background-color: #eeeeee; clear: both;}
 .list-content li .img-content { display: block; font-size: 0; line-height: 0; float: left; width: 210px; height: 126px;}
 .list-content li img {width: 100%; height: 100%;}
@@ -230,7 +231,17 @@ div.flicking_con a.on{background-position:0 -21px}
 ========================================================================== */
 .head-profile{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background: url('<%= image_url "bg4.jpg" %>') no-repeat center top; background-size: auto 100%;}
 
-.head-regulation{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background: url('<%= image_url "bg5.jpg" %>') no-repeat center top; background-size: auto 100%;}
+.regulation0,
+.regulation1,
+.regulation2,
+.regulation3,
+.regulation4{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background-size: auto 100%;}
+
+.regulation0{ background: url('<%= image_url "bg55.jpg" %>') no-repeat center top;}
+.regulation1{ background: url('<%= image_url "bg5.jpg" %>') no-repeat center top;}
+.regulation2{ background: url('<%= image_url "bg6.jpg" %>') no-repeat center top;}
+.regulation3{ background: url('<%= image_url "bg7.jpg" %>') no-repeat center top;}
+.regulation4{ background: url('<%= image_url "bg8.jpg" %>') no-repeat center top;}
 
 .head-profile .profile-img{ display: block; width: 148px; height: 148px; overflow: hidden; margin: 0 auto 20px; border: 1px solid #eee; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}
 
@@ -238,6 +249,8 @@ div.flicking_con a.on{background-position:0 -21px}
 
 .head-profile p a { font-size: 16px; color: #fff; display: block; width: 128px; height: 32px; line-height: 32px; border:1px solid #fff; border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px; margin: 0 auto;}
 
+.head-regulation p{ margin-top: 190px;}
+.regulation0 p { margin-top: 0;}
 .head-regulation p a{ font-size: 28px;color: #fff; display: block;  width: 175px; height: 44px; line-height: 44px; border:1px solid #fff; border-radius: 22px; -moz-border-radius: 22px; -webkit-border-radius: 22px; margin: 0 auto;}
 
 .head-regulation h1{ font-size: 50px; color: #fff; font-weight: normal; margin: 45px auto 90px;}
@@ -269,7 +282,7 @@ div.flicking_con a.on{background-position:0 -21px}
 .tab_box .list-description h3 .title-limit{ width: 370px; float: left;}
 
 .tab_box .list-description h3 span{ display: block; width: 250px; float: right;}
-.tab_box .list-description h3 span a{ font-size: 16px; width: 64px; height: 30px; line-height: 30px; margin: 0; padding-left: 35px; float: left; background: url('../images/dotted.png') no-repeat 0 -1559px;}
+.tab_box .list-description h3 span a{ font-size: 16px; width: 64px; height: 30px; line-height: 30px; margin: 0; padding-left: 35px; float: left; background: url('<%= image_url "dotted.png" %>') no-repeat 0 -1559px;}
 .tab_box .list-description h3 span .remove{ background-position: 0 -1770px; color: #e70000;}
 
 .tab_box .list-description h3 span .edit{ padding-right: 20px;}
@@ -367,12 +380,15 @@ div.flicking_con a.on{background-position:0 -21px}
 .America-bg{ background: transparent url('<%= image_url "America.jpg" %>') no-repeat center top;}
 .Africa-bg{ background: transparent url('<%= image_url "Africa.jpg" %>') no-repeat center top;}
 .Oceanica-bg{ background: transparent url('<%= image_url "Oceanica.jpg" %>') no-repeat center top;}
+.wenda-bg{ background: transparent url('../images/wenda.jpg') no-repeat center top;}
+.jieshou-bg{ background: transparent url('../images/banner6.jpg') no-repeat center top;}
 
 .Europe-bg,
 .Asia-bg,
 .America-bg,
 .Africa-bg,
-.Oceanica-bg{ font-size: 0;}
+.Oceanica-bg,
+.wenda-bg{ font-size: 0;}
 
 .head-details{ background: transparent url('<%= image_url "img2.jpg" %>') no-repeat center top;}
 
@@ -400,11 +416,17 @@ div.flicking_con a.on{background-position:0 -21px}
 ========================================================================== */
 .regulation-content{ margin: 40px auto 0;}
 .regulation { text-align: center; font-size: 20px; color: #505050;}
-.regulation p{ line-height: 60px; border-top: 1px solid #c8c8c8;}
+.regulation p{ line-height: 30px; padding: 15px 0; border-top: 1px solid #c8c8c8;}
+.regulation .more-line{ line-height: 40px;}
 .regulation .headline{ color: #e70000; font-size: 24px; font-weight: bold;}
 .warning-text,
 .small-text{ font-size: 14px;}
 .warning-text{ font-size: 14px; color: #e70000;}
+
+.active-text{ border-top: 1px solid #c8c8c8; border-bottom: 1px solid #c8c8c8; padding: 20px 0; margin-bottom: 40px;}
+.active-text dl{ font-size: 16px; color: #787878; line-height: 36px;}
+.active-text dl dt{ float: left;}
+.active-text dl dd{ margin-left: 50px;}
 
 /* ming dan
 ========================================================================== */
@@ -419,7 +441,42 @@ div.flicking_con a.on{background-position:0 -21px}
 .topRec_List li{ width:100%; height:30px; line-height:30px; text-align:center; font-size:12px; border-bottom: 1px dashed #f0f0f0;}
 .topRec_List li div{ float:left; width: 50%; text-align: left; font-size: 14px;}
 
-/* theme-activities
+/* wenda
+========================================================================== */
+.warning-color{ color: #e70000;}
+.slide-contaimner h4{ font-size: 20px; font-weight: normal; padding-bottom: 20px; margin-top: 20px; border-bottom:1px solid #c8c8c8;}
+.v-icon{float:right; width:22px; height:20px; overflow:hidden; background:url('<%= image_url "vicon.png" %>') no-repeat; display:inline-block; margin-top:-5px; margin-bottom:-5px;}
+.v01{background-position:0 0;}
+.v02{background-position:0 -33px;}
+.vtitle{height:49px; background:#fff; line-height:49px; border-bottom:1px solid #c8c8c8; padding-left:20px; font-size:14px; color:#505050;  cursor:pointer;}
+.vtitle em{margin:17px 10px 0 0;}
+.vconlist{ border-bottom:1px solid #c8c8c8;}
+.vconlist li,
+.attention{ line-height:30px; padding: 10px 0 10px 40px; display:block; font-size:14px; color:#787878;}
+.attention{ padding: 10px 0 10px 0; margin-bottom: 40px;}
+.vconlist li p{ margin-bottom: 10px;}
+
+/* rules
+========================================================================== */
+.xize{ background-color: #fff; padding: 40px 30px 30px; margin: 40px auto; line-height: 2; font-size: 16px; text-align: justify;}
+.xize p{ margin-bottom: 20px;}
+.xize h4{ color: #333; font-size: 24px; text-align: center; font-weight: normal;}
+
+/* product-introduce
+========================================================================== */
+.product-introduce{ font-size: 14px; color: #787878; line-height: 32px; text-align: justify; margin-bottom: 40px;}
+.product-introduce h3{ color: #e70000; font-size: 20px;}
+.product-introduce h4{ color: #505050; font-size: 16px;}
+.product-introduce ul{ padding-left: 36px; margin-bottom: 30px;}
+.product-introduce ul li{ font-size: 16px; color: #505050;}
+.product-introduce ul li p{ font-size: 14px; color: #787878;}
+.product-introduce dl { margin-left: 30px; font-size: 14px;}
+.product-introduce dl dt{float: left;}
+.product-introduce dl dd{margin-left: 15px; color: #505050;}
+.product-introduce dl dd span{ color: #787878;}
+
+
+/* footer
 ========================================================================== */
 .footer { font-size: 0; color: #505050; text-align: left;}
 .footer .inner-module{ background-color: #f0f0f0; height: 80px; line-height: 80px; border-top: 1px solid #c8c8c8;}
