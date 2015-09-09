@@ -5,95 +5,91 @@
     <div class="inner-module">
       <div class="edit-box">
         <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
-          <ul>
-            <li class="clearfix">
-              <i class="num-bg focus">1</i>
-              <span class="edit-title">选择板块</span>
-              <div class="edit-content">
-                <div class="edit-content-inner">
-                  <em>*</em>
-                  <div class="a-list clearfix">
-                    <a class="active" href="javascript:;">亚洲</a>
-                    <a href="javascript:;">欧洲</a>
-                    <a href="javascript:;">美洲</a>
-                    <a href="javascript:;">大洋洲</a>
-                    <a href="javascript:;">非洲</a>
-                  </div>
+        <%= tag(:input, type: "hidden", name: '[travel]is_finished', id: 'is_finished', value: false) %>
+        <ul>
+          <li class="clearfix">
+            <i class="num-bg focus">1</i>
+            <span class="edit-title">选择板块</span>
+            <div class="edit-content">
+              <div class="edit-content-inner">
+                <em>*</em>
+                <div class="a-list clearfix">
+                  <%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
                 </div>
               </div>
-            </li>
+            </div>
+          </li>
 
-            <li class="clearfix">
-              <i class="num-bg">2</i>
-              <span class="edit-title">编写标题</span>
-              <div class="edit-content2">
-                <div class="edit-content-inner">
-                  <em>*</em>
-                  <%= f.input(:title, label: false, placeholder: "编写标题，标题文字不超过20字", type: 'text' ) %>
-                </div>
+          <li class="clearfix">
+            <i class="num-bg">2</i>
+            <span class="edit-title">编写标题</span>
+            <div class="edit-content2">
+              <div class="edit-content-inner">
+                <em>*</em>
+                <%= f.input(:title, label: false, placeholder: "编写标题，标题文字不超过20字", type: 'text' ) %>
               </div>
-            </li>
+            </div>
+          </li>
 
-            <li class="clearfix">
-              <i class="num-bg">3</i>
-              <span class="edit-title">填写路线</span>
-              <div class="edit-content2">
-                <div class="edit-content-inner">
-                  <em>*</em>
-                  <%= f.input(:line, label: false, placeholder: "填写路线，例如：北京—巴厘岛—大溪地—北京", type: 'text') %>
-                </div>
+          <li class="clearfix">
+            <i class="num-bg">3</i>
+            <span class="edit-title">填写路线</span>
+            <div class="edit-content2">
+              <div class="edit-content-inner">
+                <em>*</em>
+                <%= f.input(:line, label: false, placeholder: "填写路线，例如：北京—巴厘岛—大溪地—北京", type: 'text') %>
               </div>
-            </li>
+            </div>
+          </li>
 
-            <li class="clearfix">
-              <i class="num-bg">4</i>
-              <span class="edit-title">上传封面</span>
-              <div class="edit-content2">
-                <div class="edit-content-inner">
-                  <em>*</em>
-                  <div class="input-div">
-                    <div class="clearfix">
-                      <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
-                      <input class="img-btn" type="button" id="image1" value="选择图片" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="clearfix">
-              <i class="num-bg">4</i>
-              <span class="edit-title">攻略内容</span>
-              <div class="edit-content2">
-                <div class="edit-content-inner">
-                  <em>*</em>
-                  <div class="input-div">
-                    <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"] %>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="clearfix">
-              <i class="num-bg">5</i>
-              <span class="edit-title">攻略总结</span>
-              <div class="edit-content2">
-                <div class="edit-content-inner">
-                  <textarea>总结：例如旅行感悟等等</textarea>
-                </div>
-                <div class="all-submit">
+          <li class="clearfix">
+            <i class="num-bg">4</i>
+            <span class="edit-title">上传封面</span>
+            <div class="edit-content2">
+              <div class="edit-content-inner">
+                <em>*</em>
+                <div class="input-div">
                   <div class="clearfix">
-                    <div class="form-rules">
-                      <input class="checked-icon" id="rules-link" type="checkbox" />
-                      <label for="rules-link">我已仔细阅读活动条款内容</label>
-                    </div>
-                    <input class="btn-up" type="submit" value="上传攻略" />
-                    <input class="btn-link" type="submit" value="保存草稿" />
+                    <%= f.input(:cover, label: false, class: 'img-btn', value: '选择图片', placeholder: "上传一张封面图，图片大小小于2M") %>
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </li>
+
+          <li class="clearfix">
+            <i class="num-bg">4</i>
+            <span class="edit-title">攻略内容</span>
+            <div class="edit-content2">
+              <div class="edit-content-inner">
+                <em>*</em>
+                <div class="input-div">
+                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"], class: 'ke-container' %>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="clearfix">
+            <i class="num-bg">5</i>
+            <span class="edit-title">攻略总结</span>
+            <div class="edit-content2">
+              <div class="edit-content-inner">
+                <%= f.input(:sentiment, label: false, type: 'text', placeholder: '总结：例如旅行感悟等等') %>
+              </div>
+              <div class="all-submit">
+                <div class="clearfix">
+                  <div class="form-rules">
+                    <input class="checked-icon" id="rules-link" type="checkbox" checked="1"/>
+                    <label for="rules-link">我已仔细阅读活动条款内容</label>
+                  </div>
+                  <%= f.button :button, "上传攻略", id: 'finished_btn', class: 'btn-up' %>
+                  <%= f.button :submit, "保存草稿", class: 'btn-link' %>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
         <% end %>
       </div>
     </div>
@@ -101,89 +97,22 @@
   <%= render 'footer' %>
 </div>
 
+<% content_for :js do %>
 <script type="text/javascript">
   $(document).ready(function(){
 
-      //获取焦点
-
-      $('.edit-box ul li:eq(0)').children('i').addClass('focus');
-      $('.edit-box ul li').mouseover(function(){
-        $(this).children('i').addClass('focus');
-      });
-      $('.edit-box ul li').mouseout(function(){
-        $(this).children('i').removeClass('focus');
-        $(this).parent('ul').children('li').eq(0).children('i').addClass('focus');
-      });
-
-    }) 
-</script>
-
-<script type="text/javascript">
-    //上传图片
-    KindEditor.ready(function(K) {
-      var editor = K.editor({
-        allowFileManager : true
-      });
-      K('#image1').click(function() {
-        editor.loadPlugin('image', function() {
-          editor.plugin.imageDialog({
-            imageUrl : K('#url1').val(),
-            clickFn : function(url, title, width, height, border, align) {
-              K('#url1').val(url);
-              editor.hideDialog();
-            }
-          });
-        });
-      });
-      K('#image2').click(function() {
-        editor.loadPlugin('image', function() {
-          editor.plugin.imageDialog({
-            showLocal : false,
-            imageUrl : K('#url2').val(),
-            clickFn : function(url, title, width, height, border, align) {
-              K('#url2').val(url);
-              editor.hideDialog();
-            }
-          });
-        });
-      });
-      K('#image3').click(function() {
-        editor.loadPlugin('image', function() {
-          editor.plugin.imageDialog({
-            showRemote : false,
-            imageUrl : K('#url3').val(),
-            clickFn : function(url, title, width, height, border, align) {
-              K('#url3').val(url);
-              editor.hideDialog();
-            }
-          });
-        });
-      });
+    //获取焦点
+    $('.edit-box ul li:eq(0)').children('i').addClass('focus');
+    $('.edit-box ul li').mouseover(function(){
+      $(this).children('i').addClass('focus');
     });
-</script>
+    $('.edit-box ul li').mouseout(function(){
+      $(this).children('i').removeClass('focus');
+      $(this).parent('ul').children('li').eq(0).children('i').addClass('focus');
+    });
 
+  })
 
-
-<%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
-<% @travel.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-<%= tag(:input, type: "hidden", name: '[travel]is_finished', id: 'is_finished', value: false) %>
-<%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
-<%= f.input(:title, label: '标题') %>
-<%= f.input(:line, label: '路线') %>
-<%= f.input(:cover, label: '上传封面') %>
-<%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"] %>
-<%= f.input(:sentiment, label: '游记总结') %>
-<div class="control-group">
-  <div class="controls">
-    <%= f.button :submit, "保存草稿" %>
-    <%= f.button :button, "上传游记", id: 'finished_btn' %>
-  </div>
-</div>
-<% end %>
-
-<script type="text/javascript">
   $(function(){
     $('#finished_btn').click(function(){
       $('#is_finished').val(true);
@@ -191,3 +120,15 @@
     })
   })
 </script>
+<% end %>
+
+
+<%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
+<% @travel.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+<%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
+
+<% end %>
+
+
