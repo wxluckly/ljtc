@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    get :edit
-    put :update
+    get :edit, :edit_avatar
+    put :update, :update_avatar
     resources :travels do
       collection do
         get :draft, :done

@@ -3,12 +3,12 @@
 
   <div class="head-profile">
     <div class="inner-module">
-      <a class="profile-img" href="javascript:;">
-        <img src="images/face.jpg" width="148" height="148">
+      <a class="profile-img" href="/user/edit_avatar">
+        <%= image_tag current_user.avatar_url(:v148x148), height: "148", width: "148" %>
       </a>
-      <p>Rabbit</p>
+      <p><%= current_user.name %></p>
       <p>
-        <a href="youji-caogao.shtml">我的攻略</a>
+        <a href="/user/travels/done">我的攻略</a>
       </p>
     </div>
   </div>
@@ -21,13 +21,13 @@
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
         <div class="form-row clearfix">
           <label><em>*</em>用户昵称：</label>
-          <input type="text" value="" />
+          <%= f.input :nickname, type: 'text', label: false %>
         </div>
 
-        <div class="form-row clearfix">
+<!--         <div class="form-row clearfix">
           <label><em>*</em>我的密码：</label>
           <%= f.input :password, type: 'password', label: false %>
-        </div>
+        </div> -->
 
         <div class="form-row clearfix">
           <label><em>*</em>真实姓名：</label>

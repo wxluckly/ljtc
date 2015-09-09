@@ -5,7 +5,7 @@
       <h3>马上注册，即可参与上传攻略，赢大奖！</h3>
       <div>
         <div class="form-group">
-          <input type="text" placeholder="用户昵称" />
+          <%= f.input :nickname, required: true, autofocus: true, placeholder: '用户昵称', type: 'text', label: false %>
           <!-- <p class="error">请输入昵称</p> -->
         </div>
         <div class="form-group">
@@ -13,11 +13,11 @@
           <!-- <p class="error">请输入正确的邮箱格式</p> -->
         </div>
         <div class="form-group">
-          <input type="text" placeholder="真实姓名" />
+          <%= f.input :name, required: true, autofocus: true, placeholder: '真实姓名', type: 'text', label: false %>
           <!-- <p class="error">请输入真实姓名</p> -->
         </div>
         <div class="form-group">
-          <input type="text" placeholder="手机号码" />
+          <%= f.input :mobile, required: true, autofocus: true, placeholder: '手机号码', type: 'text', label: false %>
           <!-- <p class="error">请输入您的手机号码</p> -->
         </div>
         <div class="form-group">
