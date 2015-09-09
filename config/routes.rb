@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    root 'welcome#index'
     get :edit
     put :update
     resources :travels do

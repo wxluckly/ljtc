@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def get_ip
     request.env["HTTP_X_FORWARDED_FOR"].try(:split, ',').try(:first) || request.env["REMOTE_ADDR"]
   end
+
 end
