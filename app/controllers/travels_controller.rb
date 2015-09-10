@@ -1,8 +1,8 @@
 class TravelsController < ApplicationController
   def show
     @unfix = true
-    @travel = Travel.publishing.find(params[:id])
-    @travel.increment!(:read_count)
+    # @travel = Travel.publishing.find(params[:id])
+    # @travel.increment!(:read_count)
   end
 
   def index
