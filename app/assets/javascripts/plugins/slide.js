@@ -102,8 +102,8 @@
             $(this).find('.ck-slide-wrapper').stop().animate({'margin-left':-x}, function(){opts['isAnimate'] = false;});
             opts['isAnimate'] = true
         }else{
-            $(this).find('.ck-slide-wrapper li').eq(hide).stop().animate({opacity:0});
-            $(this).find('.ck-slide-wrapper li').eq(show).show().css({opacity:0}).stop().animate({opacity:1});
+            $(this).find('.ck-slide-wrapper li').eq(hide).stop().animate({opacity:0}).css('z-index','0');
+            $(this).find('.ck-slide-wrapper li').eq(show).show().css({opacity:0}).stop().animate({opacity:1}).css('z-index','28');
         }
        
         $(this).find('.ck-slidebox li').removeClass('current');
