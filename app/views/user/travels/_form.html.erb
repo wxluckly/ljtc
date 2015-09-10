@@ -144,14 +144,3 @@ end
   })
 </script>
 <% end %>
-
-
-<%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
-<% @travel.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-<%= f.collection_radio_buttons :area_id, Travel.areas.value_label_map.to_a, :first, :last %>
-
-<% end %>
-
-
