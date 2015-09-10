@@ -15,18 +15,19 @@
           <div class="mark-left-inner">
             <a class="face-img" href="javascript:;">
               <%#= image_tag @travel.user.avatar_url(:v148x148), height: "120", width: "120" %>
+              <%= image_tag 'face.jpg', height: "120", width: "120" %>
             </a>
             <p class="clearfix">
               <span>作者：苹果姐姐</span>
               <span class="detail-time">2015-09-15</span>
-              <span class="glance"><%#= @travel.read_count %>人</span>  
+              <span class="glance"><%#= @travel.read_count %>11人</span>  
             </p>
           </div>
         </div>
         <div class="mark-right">
           <div class="clearfix">
             <a class="target-addr" href="javascript:;">欧洲</a>
-            <a href="javascript:void(0);" id='like_travel' data-id='<%#= @travel.id %>' class="like">喜欢<em><%#= @travel.like_count %></em></a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%#= @travel.id %>' class="like">喜欢<em>24<%#= @travel.like_count %></em></a>
             <a class="share" href="javascript:;">分享<em>456</em></a>
           </div>
         </div>
