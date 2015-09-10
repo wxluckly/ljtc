@@ -52,16 +52,10 @@
                 <em>*</em>
                 <div class="input-div">
                   <div class="clearfix">
-                    <%= f.input(:cover, label: false, class: 'img-btn', value: '选择图片', placeholder: "上传一张封面图，图片大小小于2M") %>
+                    <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
+                    <input class="img-btn" value="选择图片" type="file" name="travel[cover]" id="travel_cover">
                   </div>
                 </div>
-
-                <!-- <div class="input-div">
-                  <div class="clearfix">
-                    <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
-                    <input class="img-btn" type="button" id="image1" value="选择图片" />
-                  </div>
-                </div> -->
 
               </div>
             </div>
@@ -74,7 +68,7 @@
               <div class="edit-content-inner">
                 <em>*</em>
                 <div class="input-div">
-                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', "items":["image"], class: 'ke-container' %>
+                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :simple_mode => false %>
                 </div>
               </div>
             </div>
