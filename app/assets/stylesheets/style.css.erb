@@ -96,7 +96,15 @@ div.flicking_con a.on{background-position:0 -21px}
 .title a:hover{color: #e70000;}
 .hot-address{ font-size: 0; margin-left: -20px;}
 .hot-address li{ float: left; margin: -20px 0 0 20px; width: 320px;}
-.hot-address li a{ display: block; margin-top: 20px;}
+.hot-address li a{ display: block; margin-top: 20px; position: relative;}
+
+.hot-address li .opcity-bg,
+.hot-address li span{ display: block; position: absolute;}
+
+.hot-address li .opcity-bg{ top: 0; left: 0; width: 320px; height: 100%; background: url('<%= image_url "opcity.png" %>') left top repeat;}
+
+.hot-address li span{ top: 50%; left: 0; width: 320px; font-size: 34px; color: #fff; text-align: center; line-height: 1; margin-top: -17px; cursor: pointer;}
+
 .bottom-line{ font-size: 0; line-height: 0; background-color:#dedddd; width: 100%; height:2px; margin: 40px 0;}
 .bottom-line-white{ font-size: 0; line-height: 0; width: 100%; height:2px; margin: 40px 0;}
 .hui-img{ padding-top: 40px;}
@@ -155,7 +163,7 @@ div.flicking_con a.on{background-position:0 -21px}
 
 .mark-left p span{ float: left; display: block; height: 64px; line-height: 64px; font-size: 16px; color: #505050; padding: 0  50px 0 0;}
 .mark-left p .detail-time{ background: url('<%= image_url "dotted.png" %>') no-repeat 0 -188px; padding-left: 30px;}
-.mark-left p .glance{ padding-right: 0; background: url('../images/dotted.png') no-repeat 0 -268px; padding-left: 30px;}
+.mark-left p .glance{ padding-right: 0; background: url('<%= image_url "dotted.png" %>') no-repeat 0 -268px; padding-left: 30px;}
 .mark-right a{ line-height: 18px; display: block; float: left; width: 60px; height: 40px; border-left: 1px solid #f3f3f3; padding: 16px 0 8px 52px; font-size: 20px; color: #505050;}
 .mark-right a em{ font-size: 12px; color: #787878; display: block;}
 .mark-right a:hover{ color: #505050;}
@@ -191,12 +199,11 @@ div.flicking_con a.on{background-position:0 -21px}
 .right-nav .right3 .current,
 .right-nav .right3 a:hover{ background-position: 0 -1078px;}
 
-#line-t,
-#record-t,
-#summary-t{ position: absolute; top: -70px; left: 0; z-index: 0; display: block; width: 0; height: 0;}
-#record-t{ top: -150px;}
 
+#summary-t{ *height: 500px; min-height: 500px;}
+.details-left-bar .item{ *height: 150px; min-height: 150px;}
 .details-right-bar .navFix{ left: 50%; margin-left:330px; top: 68px; *top: 10px; background-color: #f0f0f0; z-index: 6;}
+
 
 
 /* form
