@@ -1,0 +1,60 @@
+<div class="wrap wrap-grey">
+  <%= render 'header' %>
+
+  <% case params[:id].to_i %>
+  <% when 0 then%>
+  <div class="head-img Asia-bg">亚洲</div>
+  <% when 1 then%>
+  <div class="head-img Europe-bg">欧洲</div>
+  <% when 2 then%>
+  <div class="head-img America-bg">美洲</div>
+  <% when 3 then%>
+  <div class="head-img Oceanica-bg">大洋洲</div>
+  <% when 4 then%>
+  <div class="head-img Africa-bg">非洲</div>
+  <% end %>
+
+  <div class="main">
+    <div class="inner-module">
+      <h2 class="title clearfix">
+        <span>攻略游记</span>
+      </h2>
+      <div class="water-list">
+        <ul class="clearfix">
+          <% @travels.each do |travel| %>
+          <!-- 开始 -->
+          <li>
+            <a class="item-img" href="/travels/<%= travel.id %>">
+              <%= image_tag travel.cover_url(:v320x280), width: "320", height: "280" %>
+              <!-- 列表图片宽高限制： width="320" height="280" -->
+            </a>
+            <div class="item-info">
+              <h4>
+                <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
+              </h4>
+              <div class="clearfix">
+                <div class="list-info left">
+                  <div class="clearfix">
+                    <span>2015.09.15</span>
+                    <span class="icon-pepole"><%= travel.read_count %>人</span>
+                    <span class="icon-heart"><%= travel.like_count %></span>
+                    <span class="item-author">作者：<%= travel.user.nickname %></span>
+                  </div>
+                </div>
+                <div class="circle-img right">
+                  <img src="<%= travel.user.avatar_url(:thumb) %>" width="40" height="40">
+                  <%= image_tag 'circle40.png', width: "40", height: "40", class: 'circle-mask' %>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- 结束 -->
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'footer' %>
+</div>

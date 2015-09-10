@@ -1,3 +1,6 @@
+<style>
+.head-details{ background: transparent url(<%= image_url "img#{rand(5)}.jpg" %>) no-repeat center top;}
+</style>
 <div class="wrap wrap-grey">
   <%= render 'header' %>
 
@@ -5,7 +8,7 @@
     <div class="head-details"><!-- 可更换背景图片 -->
       <div class="details-title">
         <h1>
-          <a href="javascript:;">法国巴黎 24小时 | 咖啡 生活 美食</a>
+          <a href="javascript:;"><%= @travel.title %></a>
         </h1>
       </div>
     </div>
@@ -14,20 +17,20 @@
         <div class="mark-left">
           <div class="mark-left-inner">
             <a class="face-img" href="javascript:;">
-              <%#= image_tag @travel.user.avatar_url(:v148x148), height: "120", width: "120" %>
+              <%= image_tag @travel.user.avatar_url(:v148x148), height: "120", width: "120" %>
               <%= image_tag 'face.jpg', height: "120", width: "120" %>
             </a>
             <p class="clearfix">
-              <span>作者：苹果姐姐</span>
-              <span class="detail-time">2015-09-15</span>
-              <span class="glance"><%#= @travel.read_count %>11人</span>  
+              <span>作者：<%= @travel.user.nickname %></span>
+              <span class="detail-time"><%= @travel.created_at.to_date %></span>
+              <span class="glance"><%= @travel.read_count %>人</span>  
             </p>
           </div>
         </div>
         <div class="mark-right">
           <div class="clearfix">
-            <a class="target-addr" href="javascript:;">欧洲</a>
-            <a href="javascript:void(0);" id='like_travel' data-id='<%#= @travel.id %>' class="like">喜欢<em>24<%#= @travel.like_count %></em></a>
+            <a class="target-addr" href="javascript:;"><%= Travel.areas.label_for @travel.area_id %></a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like">喜欢<em><%= @travel.like_count %></em></a>
             <a class="share" href="javascript:;">分享<em>456</em></a>
           </div>
         </div>
@@ -42,26 +45,13 @@
           <div class="block-module">
             <h2>攻略路线：<span id="line-t"></span></h2>
             <div class="travel-line">
-              上海 — 巴黎 — 巴黎歌剧院 — 香榭丽舍大道 — 埃菲尔铁塔 — 巴士底 — 巴黎圣母院 — 尼斯 — 北京
+              <%= @travel.line %>
             </div>
           </div>
           <div class="block-module">
             <h2>攻略记录：<span id="record-t"></span></h2>
             <div class="travel-record">
-              <%#= raw @travel.content %> 
-              <p>
-                从小每去一个地方之前一定要看数篇攻略，自己写还是头一回。早就和男票商量好去欧洲的事，有些许期待，紧张和小兴奋。忙过惨绝人寰的大四上学期，结束了大学最后的考试，结束了美研申请，结束了事务所实习，好像一切的一切都只为腾出这美好的几个月，来实现这次大计划。
-              </p>
-              <p>
-                在最开始的开始，我们也像大部分心灵鸡汤的传颂者一样，曾风靡朋友圈微博的几句人生就想要一次说走就走的旅行，什么心和脚步总有一个在路上，什么世界那么大，我想去看看，也被我无数次默默转发过。当真正要开始准备长达一个多月的行程的时候，当面临未知，复杂和恐惧，对于大多数人鸡汤也就仅仅只是文字而已了，转发也就是转转罢了。只有周密的准备，细致的安排和惊喜的过程才能对得起这样的时间和价钱。准备的过程是复杂而漫长的，只有当整个过程顺利的进行下去的时候，你就会感谢出发前那个精打细算的自己。
-              </p>
-              <p>
-                我们还年轻，还在经得起折腾的年纪，想要的，就要不顾一切去实现它，不为青春留下遗憾。这个计划并不是看起来那么顺利，最开始说到去欧洲，其实父母是拒绝的，可能考虑到安全等问题。不过没有解决不了的问题，男票一个电话就把我妈给搞定了。
-              </p>
-              <p>
-                <%= image_tag 'theme_07.jpg' %>
-                <%= image_tag 'bg1.jpg' %>
-              </p>
+              <%= raw @travel.content %> 
             </div>
           </div>
           <div class="block-module">

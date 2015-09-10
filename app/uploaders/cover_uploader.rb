@@ -8,8 +8,20 @@ class CoverUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :v200x200 do
-    process resize_to_fill: [200, 200]
+  version :v1920x400 do
+    process resize_to_fill: [1920, 400]
+  end
+
+  version :v320x280 do
+    process resize_to_fill: [320, 190]
+  end
+
+  version :v320x190 do
+    process resize_to_fill: [320, 190]
+  end
+
+  version :v210x126 do
+    process resize_to_fill: [210, 126]
   end
 
   version :thumb do
