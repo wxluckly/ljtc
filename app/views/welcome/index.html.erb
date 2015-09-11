@@ -30,22 +30,32 @@
             <li>
               <a href="/areas/0">
                 <%= image_tag 'zhou_03.jpg', width: "320", height: "260" %>
+                <div class="opcity-bg"></div>
+                <span>亚洲</span>
               </a>
             </li>
             <li>
               <a href="/areas/1">
                 <%= image_tag 'zhou_04.jpg', width: "320", height: "120" %>
+                <div class="opcity-bg"></div>
+                <span>欧洲</span>
               </a>
               <a href="/areas/3">
                 <%= image_tag 'zhou_10.jpg', width: "320", height: "120" %>
+                <div class="opcity-bg"></div>
+                <span>大洋洲</span>
               </a>
             </li>
             <li>
               <a href="/areas/2">
                 <%= image_tag 'zhou_06.jpg', width: "320", height: "120" %>
+                <div class="opcity-bg"></div>
+                <span>美洲</span>
               </a>
               <a href="/areas/4">
                 <%= image_tag 'zhou_12.jpg', width: "320", height: "120" %>
+                <div class="opcity-bg"></div>
+                <span>非洲</span>
               </a>
             </li>
           </ul>
@@ -194,7 +204,7 @@
                 <div class="maquee">
                   <ul>
                     <li>
-                      <div>董小姐</div>
+                      <div>董女士</div>
                       <div>187****3241</div>
                     </li> 
                     <li>
@@ -291,6 +301,20 @@
 </div>
 
 <% content_for :js do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+    //主题
+
+    $('.hot-address li a').mouseover(function(){
+      $(this).children().not('img').stop().animate({opacity:0});
+    });
+    $('.hot-address li a').mouseout(function(){
+      $(this).children().not('img').stop().animate({opacity:1});
+    });
+    
+  }) 
+</script>
 <!-- 文字滚动 -->
 <script type="text/javascript"> 
   $('.ck-slide').ckSlide({

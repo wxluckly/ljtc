@@ -20,6 +20,7 @@
 //= require plugins/icheck
 //= require plugins/buttonLite
 //= require plugins/bshareC0
+//= require plugins/menu
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({

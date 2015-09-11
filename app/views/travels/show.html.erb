@@ -42,21 +42,21 @@
   <div class="main">
     <div class="inner-module details-grey">
       <div class="details-container clearfix">
-        <div class="details-left-bar">
-          <div class="block-module">
-            <h2>攻略路线：<span id="line-t"></span></h2>
+        <div class="details-left-bar" id="contentLeft">
+          <div class="block-module item" id="line-t">
+            <h2>攻略路线：</h2>
             <div class="travel-line">
               <%= @travel.line %>
             </div>
           </div>
-          <div class="block-module">
-            <h2>攻略记录：<span id="record-t"></span></h2>
+          <div class="block-module item" id="record-t">
+            <h2>攻略记录：</h2>
             <div class="travel-record">
               <%= raw @travel.content %> 
             </div>
           </div>
-          <div class="block-module">
-            <h2>旅程总结：<span id="summary-t"></span></h2>
+          <div class="block-module item" id="summary-t">
+            <h2>旅程总结：</h2>
             <div>
               <p>
                 <%= raw @travel.sentiment %> 
@@ -124,9 +124,9 @@
       });
 
       //攻略目录
-      $('.right-nav ul > li > a').click(function(){
-        $(this).addClass('current').parent('li').siblings().children().removeClass('current');
-      })
+      // $('.right-nav ul > li > a').click(function(){
+      //   $(this).addClass('current').parent('li').siblings().children().removeClass('current');
+      // })
 
     }) 
 </script>

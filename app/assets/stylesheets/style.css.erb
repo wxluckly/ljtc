@@ -96,7 +96,15 @@ div.flicking_con a.on{background-position:0 -21px}
 .title a:hover{color: #e70000;}
 .hot-address{ font-size: 0; margin-left: -20px;}
 .hot-address li{ float: left; margin: -20px 0 0 20px; width: 320px;}
-.hot-address li a{ display: block; margin-top: 20px;}
+.hot-address li a{ display: block; margin-top: 20px; position: relative;}
+
+.hot-address li .opcity-bg,
+.hot-address li span{ display: block; position: absolute;}
+
+.hot-address li .opcity-bg{ top: 0; left: 0; width: 320px; height: 100%; background: url('<%= image_url "opcity.png" %>') left top repeat;}
+
+.hot-address li span{ top: 50%; left: 0; width: 320px; font-size: 34px; color: #fff; text-align: center; line-height: 1; margin-top: -17px; cursor: pointer;}
+
 .bottom-line{ font-size: 0; line-height: 0; background-color:#dedddd; width: 100%; height:2px; margin: 40px 0;}
 .bottom-line-white{ font-size: 0; line-height: 0; width: 100%; height:2px; margin: 40px 0;}
 .hui-img{ padding-top: 40px;}
@@ -162,12 +170,13 @@ div.flicking_con a.on{background-position:0 -21px}
 .mark-right .share{ border-right: 1px solid #f3f3f3; background: url('<%= image_url "dotted.png" %>') no-repeat 18px -526px;}
 .mark-right .target-addr{ background: url('<%= image_url "dotted.png" %>') no-repeat 18px -352px; width: 78px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
 .mark-right .like{  background: url('<%= image_url "dotted.png" %>') no-repeat 18px -442px;}
+.mark-right .like.active{ background-position: 18px -2195px;}
 
 .details-container{ position: relative; z-index: 1;}
 .details-left-bar{ float: left; width: 720px; padding-top: 20px;}
 .details-right-bar{ float: right; width: 170px;}
 .details-left-bar h2{ font-size: 20px; font-weight: normal; color: #0a6cff; padding: 20px 0; margin-bottom: 15px; border-bottom: 1px solid #c8c8c8; position: relative;}
-.details-left-bar .travel-line{ font-size: 18px; color: #0a6cff; padding-bottom: 40px; border-bottom: 1px solid #c8c8c8; line-height: 30px;}
+.details-left-bar .travel-line{ font-size: 18px; color: #646464; padding-bottom: 40px; border-bottom: 1px solid #c8c8c8; line-height: 30px;}
 .details-left-bar p{ font-size: 14px; line-height: 30px; color: #646464; text-align: justify; padding-bottom: 40px;}
 .details-left-bar p img{ max-width: 100%; *width: 100%; display: block; margin: 0 0 20px;}
 .travel-record{ border-bottom: 1px solid #c8c8c8;}
@@ -191,12 +200,11 @@ div.flicking_con a.on{background-position:0 -21px}
 .right-nav .right3 .current,
 .right-nav .right3 a:hover{ background-position: 0 -1078px;}
 
-#line-t,
-#record-t,
-#summary-t{ position: absolute; top: -70px; left: 0; z-index: 0; display: block; width: 0; height: 0;}
-#record-t{ top: -150px;}
 
+#summary-t{ *height: 600px; min-height: 600px;}
+.details-left-bar .item{ *height: 150px; min-height: 150px;}
 .details-right-bar .navFix{ left: 50%; margin-left:330px; top: 68px; *top: 10px; background-color: #f0f0f0; z-index: 6;}
+
 
 
 /* form
@@ -209,6 +217,8 @@ div.flicking_con a.on{background-position:0 -21px}
 .register-bg{ background: url('<%= image_url "bg2.jpg" %>') no-repeat center top; background-size: auto 100%;}
 .login-bg{ background: url('<%= image_url "bg3.jpg" %>') no-repeat center top; background-size: auto 100%;}
 .form-container{ width: 500px; margin: 0 auto; padding-top: 80px;}
+.form-register{ width: 500px; margin: 0 auto; padding-top: 50px;}
+.form-register .form-group .btn-mar{ margin-top: 10px;}
 .form-content{ background-color: #fff; padding: 20px 50px 15px;}
 .form-content h3{ font-size: 16px; color: #505050; padding-bottom: 5px;}
 .form-group { padding-top: 15px; position: relative;}
@@ -223,7 +233,10 @@ div.flicking_con a.on{background-position:0 -21px}
 .small-notice2 span{  float: left;}
 .small-notice2 .back{ float: right; color: #787878;}
 .Immediately{ margin-top: 60px;}
-.error { color: #e70000; font-size: 14px; text-align: right; margin-top: 5px; display: block;}
+.error,
+.form-small { color: #e70000; font-size: 14px; text-align: right; margin-top: 5px; display: block;}
+.form-small { color: #787878;}
+
 .icon-email {display: block; margin: 15px auto 20px; width: 60px; height: 30px; background: url('<%= image_url "dotted.png" %>') no-repeat left -1370px;}
 .text-notice{ text-align: justify; color: #787878; line-height: 25px; padding-bottom: 10px;}
 
@@ -441,6 +454,7 @@ div.flicking_con a.on{background-position:0 -21px}
 .active-text dl{ font-size: 16px; color: #787878; line-height: 36px;}
 .active-text dl dt{ float: left;}
 .active-text dl dd{ margin-left: 50px;}
+.title-icon{ margin-right: 10px;}
 
 /* ming dan
 ========================================================================== */
