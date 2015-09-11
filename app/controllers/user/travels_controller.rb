@@ -3,11 +3,11 @@ class User::TravelsController < User::BaseController
   end
 
   def draft
-    @travels = current_user.travels.draft
+    @travels = current_user.travels.draft.order('id desc')
   end
 
   def done
-    @travels = current_user.travels.done
+    @travels = current_user.travels.done.order('id desc')
   end
 
   def new

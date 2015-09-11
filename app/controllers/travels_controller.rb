@@ -6,7 +6,7 @@ class TravelsController < ApplicationController
   end
 
   def index
-    @travels = Travel.publishing.paginate(page: params[:page])
+    @travels = Travel.publishing.order('id desc').paginate(page: params[:page])
   end
 
 end
