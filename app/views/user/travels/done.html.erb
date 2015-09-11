@@ -28,7 +28,7 @@
                 <li>
                   <div class="clearfix">
                     <a class="img-content" href="javascript:;">
-                      <img src="images/list.jpg" width="320" height="190" />
+                      <%= image_tag travel.cover_url(:v320x280), width: "320", height: "280" %>
                     </a>
                     <div class="list-description">
                       <h3>
@@ -39,9 +39,9 @@
                       </p>
                       <p class="small-text clearfix">
                         <span class="icon-time"><%= l travel.created_at %></span>
-                        <span class="icon-pepole">20人</span>
-                        <span class="icon-heart">219</span>
-                        <span class="from">来自：大洋洲 版</span>
+                        <span class="icon-pepole"><%= travel.read_count %>人</span>
+                        <span class="icon-heart"><%= travel.like_count %></span>
+                        <span class="from">来自：<%= Travel.areas.value_label_map[@travel.area_id.to_s] %> 版</span>
                       </p>
                     </div>
                   </div>

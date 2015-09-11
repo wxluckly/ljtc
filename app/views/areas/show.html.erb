@@ -35,7 +35,7 @@
               <div class="clearfix">
                 <div class="list-info left">
                   <div class="clearfix">
-                    <span>2015.09.15</span>
+                    <span><%= travel.created_at.to_date %></span>
                     <span class="icon-pepole"><%= travel.read_count %>人</span>
                     <span class="icon-heart"><%= travel.like_count %></span>
                     <span class="item-author">作者：<%= travel.user.nickname %></span>
