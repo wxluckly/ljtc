@@ -45,7 +45,7 @@ class User::TravelsController < User::BaseController
 
   private
   def travel_params
-    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id)
+    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id, :cover)
   end
 
 end

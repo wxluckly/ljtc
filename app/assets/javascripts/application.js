@@ -18,6 +18,8 @@
 //= require plugins/banner
 //= require plugins/slide
 //= require plugins/icheck
+//= require plugins/buttonLite
+//= require plugins/bshareC0
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({
