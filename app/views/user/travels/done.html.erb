@@ -41,7 +41,7 @@
                         <span class="icon-time"><%= l travel.created_at %></span>
                         <span class="icon-pepole"><%= travel.read_count %>人</span>
                         <span class="icon-heart"><%= travel.like_count %></span>
-                        <span class="from">来自：<%= Travel.areas.value_label_map[@travel.area_id.to_s] %> 版</span>
+                        <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
                       </p>
                     </div>
                   </div>
