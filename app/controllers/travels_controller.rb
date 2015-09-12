@@ -6,8 +6,8 @@ class TravelsController < ApplicationController
       @travel = travel
     else
       @travel = Travel.publishing.find(params[:id])
-      @travel.increment!(:read_count)
     end
+    @travel.increment!(:read_count)
   end
 
   def index

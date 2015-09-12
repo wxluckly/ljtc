@@ -31,8 +31,9 @@
         <div class="mark-right">
           <div class="clearfix">
             <a class="target-addr" href="javascript:;"><%= Travel.areas.value_label_map[@travel.area_id.to_s] %></a>
-            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like">喜欢<em><%= @travel.like_count %></em></a>
-            <a class="share" href="javascript:void();" onclick="bShare.init();bShare.share(event,'sinaminiblog',0);return false;">分享<em><%= @travel.share_count %></em></a>
+            <a href="javascript:void(0);" id='liked_travel' class="like active" <% unless liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like" <% if liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <a class="share" href="javascript:void();" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a>
           </div>
         </div>
       </div>
@@ -92,9 +93,22 @@
 <% content_for :js do %>
 <script type="text/javascript">
 
-  $(document).ready(function(){
+  function click_share(){
+    shareInterval = setInterval(function(){
+      try {
+        bShare.share(event, 'sinaminiblog',0);
+        clearInterval(shareInterval);
+        return false;
+      }catch (e) {
+        bShare.init();
+      } 
+    },100)
+  }
 
-    // bShare.init();
+
+  $(document).ready(function(){
+    bShare.init();
+
     // bShare.addEntry({
     //   title: "分享亿元民间炒股大赛炒股高手：的直播",
     //   url: "http://123123",
@@ -128,7 +142,7 @@
       //   $(this).addClass('current').parent('li').siblings().children().removeClass('current');
       // })
 
-    }) 
+}) 
 </script>
 <% end %>
 
