@@ -94,6 +94,9 @@
 <script type="text/javascript">
 
   function click_share(){
+    $.post("/ajax/share_weibo", {
+      id: '<%= @travel.id %>'
+    },function(){}, "script");
     shareInterval = setInterval(function(){
       try {
         bShare.share(event, 'sinaminiblog',0);
