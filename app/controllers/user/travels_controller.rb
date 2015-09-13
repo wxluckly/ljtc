@@ -11,7 +11,7 @@ class User::TravelsController < User::BaseController
   end
 
   def new
-    @travel = current_user.travels.new
+    @travel = current_user.travels.new(event_id: params[:event_id])
   end
 
   def create
@@ -55,7 +55,7 @@ class User::TravelsController < User::BaseController
 
   private
   def travel_params
-    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id, :cover)
+    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id, :cover, :event_id)
   end
 
 end

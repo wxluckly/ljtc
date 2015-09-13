@@ -19,12 +19,8 @@
         <h2 class="form-title">我的头像</h2>
         <%= simple_form_for(@user, as: "user", url: user_update_avatar_path(@user), html: {class: "form-horizontal"}, method: 'PUT') do |f| %>
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-        <div class="form-row form-up clearfix">
-          <label>
-            <div class="up-left">
-              <em>*</em>上传图片：
-            </div>
-          </label>
+        <div class="form-row clearfix">
+          <label><em>*</em>上传图片：</label>
           <%= f.input :avatar, type: 'text', label: false %>
         </div>
         <div class="form-row clearfix">
