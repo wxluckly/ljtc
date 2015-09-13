@@ -19,7 +19,8 @@
           <div class="logged-on">
             <div class="personal clearfix">
               <div class="user-img">
-                <%= image_tag 'face.jpg', width: "44", height: "44" %>
+
+                <%= image_tag current_user.avatar_url(:thumb), width: "44", height: "44" %>
                 <%= image_tag 'circle.png', class: "mask" %>
               </div>
               <div class="user-center">
