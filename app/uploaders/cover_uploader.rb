@@ -13,7 +13,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   version :v320x280 do
-    process resize_to_fill: [320, 190]
+    process resize_to_fill: [320, 280]
   end
 
   version :v320x190 do

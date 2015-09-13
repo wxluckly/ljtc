@@ -18,6 +18,8 @@
 //= require plugins/banner
 //= require plugins/slide
 //= require plugins/icheck
+//= require plugins/buttonLite
+//= require plugins/bshareC0
 //= require plugins/menu
 
 $( document ).on("click", "#like_travel", function() {
@@ -26,7 +28,10 @@ $( document ).on("click", "#like_travel", function() {
     type: "POST",
     data: {id: $(this).data('id')},
     success: function(result) {
-      alert('成功')
+      $("#like_travel").hide();
+      $("#liked_travel").show();
+      var count = parseInt($("#liked_travel em").text());
+      $("#liked_travel em").text(count + 1);
     }
   })
 });

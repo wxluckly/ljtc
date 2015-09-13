@@ -78,96 +78,30 @@
             </h2>
             <div class="content">
               <ul class="list-content">
+                <% @selected_tarvels.each do |travel| %>
                 <li>
                   <div class="clearfix">
-                    <a class="img-content" href="/travels/100">
-                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
+                    <a class="img-content" href="/travels/<%= travel.id %>">
+                      <%= image_tag travel.cover_url(:v210x126), width: "210", height: "126" %>
                     </a>
                     <div class="list-description">
                       <h3>
-                        <a href="/travels/100">【腌鱼的画】记得那一片宁静的海</a>
+                        <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
                       </h3>
                       <p class="summary">
                         如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
                       </p>
                       <p class="small-text clearfix">
-                        <span>作者：yannycat</span>
-                        <span>2015-09-15</span>
-                        <span class="icon-heart">219</span>
-                        <span class="from">来自：大洋洲 版</span>
+                        <span>作者：<%= travel.user.nickname %></span>
+                        <span><%= travel.created_at.to_date %></span>
+                        <span class="icon-heart"><%= travel.like_count || 0 %></span>
+                        <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
                       </p>
                     </div>
                   </div>
                   <div class="bottom-line1"></div>
                 </li>
-
-                <li>
-                  <div class="clearfix">
-                    <a class="img-content" href="/travels/100">
-                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
-                    </a>
-                    <div class="list-description">
-                      <h3>
-                        <a href="/travels/100">【腌鱼的画】记得那一片宁静的海</a>
-                      </h3>
-                      <p class="summary">
-                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
-                      </p>
-                      <p class="small-text clearfix">
-                        <span>作者：yannycat</span>
-                        <span>2015-09-15</span>
-                        <span class="icon-heart">219</span>
-                        <span class="from">来自：大洋洲 版</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="bottom-line1"></div>
-                </li>
-
-                <li>
-                  <div class="clearfix">
-                    <a class="img-content" href="/travels/100">
-                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
-                    </a>
-                    <div class="list-description">
-                      <h3>
-                        <a href="/travels/100">【腌鱼的画】记得那一片宁静的海</a>
-                      </h3>
-                      <p class="summary">
-                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
-                      </p>
-                      <p class="small-text clearfix">
-                        <span>作者：yannycat</span>
-                        <span>2015-09-15</span>
-                        <span class="icon-heart">219</span>
-                        <span class="from">来自：大洋洲 版</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="bottom-line1"></div>
-                </li>
-
-                <li>
-                  <div class="clearfix">
-                    <a class="img-content" href="/travels/100">
-                      <%= image_tag 'list.jpg', width: "210", height: "126" %>
-                    </a>
-                    <div class="list-description">
-                      <h3>
-                        <a href="/travels/100">【腌鱼的画】记得那一片宁静的海</a>
-                      </h3>
-                      <p class="summary">
-                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
-                      </p>
-                      <p class="small-text clearfix">
-                        <span>作者：yannycat</span>
-                        <span>2015-09-15</span>
-                        <span class="icon-heart">219</span>
-                        <span class="from">来自：大洋洲 版</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -303,7 +237,7 @@
 <% content_for :js do %>
 <script type="text/javascript">
   $(document).ready(function(){
-    
+
     //主题
 
     $('.hot-address li a').mouseover(function(){

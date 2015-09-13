@@ -53,7 +53,8 @@
                 <div class="input-div">
                   <div class="clearfix">
                     <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
-                    <input class="img-btn" value="选择图片" type="file" name="travel[cover]" id="travel_cover">
+                    <!-- <input class="img-btn" value="选择图片" type="file" name="travel[cover]" id="travel_cover"> -->
+                    <%= f.input(:cover, label: false, placeholder: "填写路线，例如：北京—巴厘岛—大溪地—北京", class: 'img-btn') %>
                   </div>
                 </div>
 
@@ -68,7 +69,7 @@
               <div class="edit-content-inner">
                 <em>*</em>
                 <div class="input-div">
-                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :simple_mode => false %>
+                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :simple_mode => false, :editor_id => 'my_editor' %>
                 </div>
               </div>
             </div>

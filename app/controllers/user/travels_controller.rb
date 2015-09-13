@@ -3,11 +3,11 @@ class User::TravelsController < User::BaseController
   end
 
   def draft
-    @travels = current_user.travels.draft
+    @travels = current_user.travels.draft.order('id desc')
   end
 
   def done
-    @travels = current_user.travels.done
+    @travels = current_user.travels.done.order('id desc')
   end
 
   def new
@@ -45,7 +45,7 @@ class User::TravelsController < User::BaseController
 
   private
   def travel_params
-    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id)
+    params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id, :cover)
   end
 
 end

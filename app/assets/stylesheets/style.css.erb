@@ -157,7 +157,7 @@ div.flicking_con a.on{background-position:0 -21px}
 .mark-left-inner{ position: relative; padding-left: 150px; width: 460px;}
 .mark-right{ width: 360px; float: right; position: relative; z-index: 100;}
 .mark-left .face-img{ display: block; width: 120px; height: 120px; border-radius: 50%; overflow: hidden; position: absolute; bottom: 12px; left: 0; border: 1px solid #eee;}
-.mark-left .face-img img{ width: 100%; height: 100%;}
+.mark-left .face-img img{ width: 100%; height: 100%;background-color: #fff;}
 .details-banner .navFix { width: 100%; *position: relative; *top: 0; *left: 0;}
 .navFix .mark-left .face-img{ display: block; width: 50px; height: 50px; position: absolute; bottom: 5px; left: 35px;}
 
@@ -174,11 +174,12 @@ div.flicking_con a.on{background-position:0 -21px}
 
 .details-container{ position: relative; z-index: 1;}
 .details-left-bar{ float: left; width: 720px; padding-top: 20px;}
+.details-left-bar img{ width: 100%; height: auto;}
 .details-right-bar{ float: right; width: 170px;}
 .details-left-bar h2{ font-size: 20px; font-weight: normal; color: #0a6cff; padding: 20px 0; margin-bottom: 15px; border-bottom: 1px solid #c8c8c8; position: relative;}
 .details-left-bar .travel-line{ font-size: 18px; color: #646464; padding-bottom: 40px; border-bottom: 1px solid #c8c8c8; line-height: 30px;}
-.details-left-bar p{ font-size: 14px; line-height: 30px; color: #646464; text-align: justify; padding-bottom: 40px;}
-.details-left-bar p img{ max-width: 100%; *width: 100%; display: block; margin: 0 0 20px;}
+.details-left-bar p{ word-break: break-all; font-size: 14px; line-height: 30px; color: #646464; text-align: justify; padding-bottom: 20px;}
+.details-left-bar p img{ width: 100%; height: auto; display: block; margin: 0 0 20px;}
 .travel-record{ border-bottom: 1px solid #c8c8c8;}
 .right-nav { padding-top: 50px; *width: 0px;}
 .right-nav ul{ width: 1px; height: 200px; background-color: #dcdcdc; margin-left: 0;}
@@ -201,7 +202,7 @@ div.flicking_con a.on{background-position:0 -21px}
 .right-nav .right3 a:hover{ background-position: 0 -1078px;}
 
 
-#summary-t{ *height: 500px; min-height: 500px;}
+#summary-t{ *height: 600px; min-height: 600px;}
 .details-left-bar .item{ *height: 150px; min-height: 150px;}
 .details-right-bar .navFix{ left: 50%; margin-left:330px; top: 68px; *top: 10px; background-color: #f0f0f0; z-index: 6;}
 
@@ -245,17 +246,18 @@ div.flicking_con a.on{background-position:0 -21px}
 ========================================================================== */
 .head-profile{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background: #f4f4f4 url('<%= image_url "bg4.jpg" %>') no-repeat center top; background-size: auto 100%;}
 
-.regulation0,
-.regulation1,
-.regulation2,
-.regulation3,
-.regulation4{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background-size: auto 100%;}
 
 .regulation0{ background: url('<%= image_url "bg55.jpg" %>') no-repeat center top;}
 .regulation1{ background: url('<%= image_url "bg5.jpg" %>') no-repeat center top;}
 .regulation2{ background: url('<%= image_url "bg6.jpg" %>') no-repeat center top;}
 .regulation3{ background: url('<%= image_url "bg7.jpg" %>') no-repeat center top;}
 .regulation4{ background: url('<%= image_url "bg8.jpg" %>') no-repeat center top;}
+
+.regulation0,
+.regulation1,
+.regulation2,
+.regulation3,
+.regulation4{ text-align: center; height: 285px; width: 100%; padding-top: 115px; background-size: auto 100%;background-color:#F4F4F4;}
 
 .head-profile .profile-img{ background-color: #f4f4f4; display: block; width: 148px; height: 148px; overflow: hidden; margin: 0 auto 20px; border: 1px solid #eee; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;}
 

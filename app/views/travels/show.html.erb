@@ -1,6 +1,7 @@
 <style>
-.head-details{ background: transparent url(<%= image_url "img#{rand(5)}.jpg" %>) no-repeat center top;}
+  .head-details{ background: transparent url(<%= image_url "img#{rand(5)}.jpg" %>) no-repeat center top;}
 </style>
+
 <div class="wrap wrap-grey">
   <%= render 'header' %>
 
@@ -29,9 +30,10 @@
         </div>
         <div class="mark-right">
           <div class="clearfix">
-            <a class="target-addr" href="javascript:;"><%= Travel.areas.label_for @travel.area_id %></a>
-            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like">喜欢<em><%= @travel.like_count %></em></a>
-            <a class="share" href="javascript:;">分享<em>456</em></a>
+            <a class="target-addr" href="javascript:;"><%= Travel.areas.value_label_map[@travel.area_id.to_s] %></a>
+            <a href="javascript:void(0);" id='liked_travel' class="like active" <% unless liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like" <% if liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <a class="share" href="javascript:void();" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a>
           </div>
         </div>
       </div>
@@ -58,13 +60,13 @@
             <h2>旅程总结：</h2>
             <div>
               <p>
-                能看到这的果然都是真爱！！谢谢你们能耐心的看完。这次欧洲之行大概是我人生中最最开心最最难忘的一段经历了。世界这么大，每一处地方都要自己用心去体验才会有不一般的感受，只有自己不断的去做功课，diy路线行程，才能脑补自己对每一个地方的了解。虽然过程繁琐，有时候会很累，但是美景带来的快乐是用钱都买不到的。最后，希望每个驴友都能在对的时间遇到对的人，你带着TA，TA带着钱，任性的走遍全世界～
+                <%= raw @travel.sentiment %> 
               </p>
             </div>
           </div>
         </div>
         <div class="details-right-bar">
-          <div class="right-nav">
+          <div class="right-nav" id="menu">
             <ul>
               <li>
                 <h4>攻略目录</h4>
@@ -90,7 +92,31 @@
 
 <% content_for :js do %>
 <script type="text/javascript">
+
+  function click_share(){
+    $.post("/ajax/share_weibo", {
+      id: '<%= @travel.id %>'
+    },function(){}, "script");
+    shareInterval = setInterval(function(){
+      try {
+        bShare.share(event, 'sinaminiblog',0);
+        clearInterval(shareInterval);
+        return false;
+      }catch (e) {
+        bShare.init();
+      } 
+    },100)
+  }
+
+
   $(document).ready(function(){
+    bShare.init();
+
+    // bShare.addEntry({
+    //   title: "分享亿元民间炒股大赛炒股高手：的直播",
+    //   url: "http://123123",
+    //   summary: "推荐亿元民间炒股大赛炒股高手："
+    // });
 
       //固定顶部导航
       var headHeight=$(".details-banner").height();
@@ -119,7 +145,7 @@
       //   $(this).addClass('current').parent('li').siblings().children().removeClass('current');
       // })
 
-    }) 
+}) 
 </script>
 <% end %>
 
