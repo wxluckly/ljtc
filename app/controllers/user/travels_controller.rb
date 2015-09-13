@@ -18,7 +18,11 @@ class User::TravelsController < User::BaseController
     @travel = current_user.travels.new(travel_params)
     respond_to do |format|
       if @travel.save
-        format.html { redirect_to draft_user_travels_path }
+        if @travel.is_finished?
+          format.html { redirect_to done_user_travels_path }
+        else
+          format.html { redirect_to draft_user_travels_path }
+        end
         format.json { render :json => @json }
       else
         format.html { render action: :edit }
