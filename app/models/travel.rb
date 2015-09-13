@@ -9,6 +9,14 @@ class Travel < ActiveRecord::Base
     list5: {label: '非洲', desc: '非洲',  value: '4'}
     )
 
+  cattr_accessor :events
+  self.events = DbItem.new(
+    list1: {label: '我是最美风景', desc: '我是最美风景',  value: '1'},
+    list2: {label: '最爱心中那一瞬', desc: '最爱心中那一瞬',  value: '2'},
+    list3: {label: '舌尖上的全世界', desc: '舌尖上的全世界',  value: '3'},
+    list4: {label: '跨越地球去睡你', desc: '跨越地球去睡你',  value: '4'}
+    )
+
   # extends ...................................................................
   # includes ..................................................................
   # security (i.e. attr_accessible) ...........................................
