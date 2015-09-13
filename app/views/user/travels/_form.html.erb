@@ -4,7 +4,7 @@
   <div class="main">
     <div class="inner-module">
       <div class="edit-box">
-        <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}, :multipart => true) do |f| %>
+        <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal", :multipart => true}) do |f| %>
         <%= tag(:input, type: "hidden", name: '[travel]is_finished', id: 'is_finished', value: false) %>
         <ul>
           <li class="clearfix">
