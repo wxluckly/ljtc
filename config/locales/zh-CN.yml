@@ -1,4 +1,11 @@
 zh-CN:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              not_found: "没有该用户"
   date:
     abbr_day_names:
     - 周日
@@ -95,6 +102,10 @@ zh-CN:
       month: 月
       second: 秒
       year: 年
+  devise:
+    mailer:
+      reset_password_instructions:
+        subject: "重置密码引导"
   errors:
     format: ! '%{attribute}%{message}'
     messages:
