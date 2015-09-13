@@ -37,3 +37,10 @@
 
   <%= render 'footer' %>
 </div>
+<script type="text/javascript">
+  $(function(){
+   $("#user_avatar").change(function(){
+    $(".img-input").val($("#user_avatar").val());
+   })
+  })
+</script>
