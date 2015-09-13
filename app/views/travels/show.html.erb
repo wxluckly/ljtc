@@ -115,7 +115,7 @@
     bShare.addEntry({
       title: "《<%= raw @travel.title %>》—— 爱go，爱晒，爱分享",
       url: "<%= request.url %>",
-      summary: "<%= raw @travel.sentiment %>"
+      summary: "<%= @travel.sentiment %>"
     });
 
       //固定顶部导航
