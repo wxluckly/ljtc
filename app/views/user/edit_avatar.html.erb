@@ -17,7 +17,7 @@
     <div class="inner-module">
       <div class="form-module">
         <h2 class="form-title">我的头像</h2>
-        <%= simple_form_for(@user, as: "user", url: user_update_avatar_path(@user), html: {class: "form-horizontal"}, method: 'PUT') do |f| %>
+        <%= simple_form_for(@user, as: "user", url: user_update_avatar_path(@user), html: {class: "form-horizontal", :multipart => true}, method: 'PUT') do |f| %>
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
         <div class="form-row form-up clearfix">
           <label>
