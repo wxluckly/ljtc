@@ -112,11 +112,11 @@
   $(document).ready(function(){
     bShare.init();
 
-    // bShare.addEntry({
-    //   title: "分享亿元民间炒股大赛炒股高手：的直播",
-    //   url: "http://123123",
-    //   summary: "推荐亿元民间炒股大赛炒股高手："
-    // });
+    bShare.addEntry({
+      title: "《<%= raw @travel.title %>》—— 爱go，爱晒，爱分享",
+      url: "<%= request.url %>",
+      summary: "<%= raw @travel.sentiment %>"
+    });
 
       //固定顶部导航
       var headHeight=$(".details-banner").height();
