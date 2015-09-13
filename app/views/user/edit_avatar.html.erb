@@ -42,6 +42,7 @@
 
   <%= render 'footer' %>
 </div>
+<% content_for :js do %>
 <script type="text/javascript">
   $(function(){
    $("#user_avatar").change(function(){
@@ -49,3 +50,4 @@
    })
   })
 </script>
+<% end %>
