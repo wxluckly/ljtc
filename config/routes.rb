@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   namespace :sub do
-    get :event_zero, :event_one, :event_two, :event_three, :event_four, :qa, :product, :rule
+    get :event_zero, :event_one, :event_two, :event_three, :event_four, :qa, :product, :rule, :sending_mail
   end
 
   namespace :user do
