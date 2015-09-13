@@ -4,7 +4,7 @@
   <div class="main">
     <div class="inner-module">
       <div class="edit-box">
-        <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}) do |f| %>
+        <%= simple_form_for(@travel, as: "travel", url: @travel.new_record? ? user_travels_path : user_travel_path(@travel), html: {class: "form-horizontal"}, :multipart => true) do |f| %>
         <%= tag(:input, type: "hidden", name: '[travel]is_finished', id: 'is_finished', value: false) %>
         <ul>
           <li class="clearfix">
@@ -53,8 +53,7 @@
                 <div class="input-div">
                   <div class="clearfix">
                     <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
-                    <!-- <input class="img-btn" value="选择图片" type="file" name="travel[cover]" id="travel_cover"> -->
-                    <%= f.input(:cover, label: false, placeholder: "填写路线，例如：北京—巴厘岛—大溪地—北京", class: 'img-btn') %>
+                    <div class="input file optional travel_cover">上传文件<input class="file optional" type="file" name="travel[cover]" id="travel_cover"></div>
                   </div>
                 </div>
 
