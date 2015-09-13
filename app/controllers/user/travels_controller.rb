@@ -43,6 +43,12 @@ class User::TravelsController < User::BaseController
     end
   end
 
+  def destroy
+    @travel = current_user.travels.draft.find(params[:id])
+    @travel.destroy
+    render js: 'location.reload();'
+  end
+
   private
   def travel_params
     params.require(:travel).permit(:title, :content, :sentiment, :line, :is_finished, :area_id, :cover)
