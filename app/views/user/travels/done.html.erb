@@ -35,12 +35,12 @@
                         <a href="/travels/<%= travel.id %>" target="_blank"><%= travel.title %></a>
                       </h3>
                       <p class="summary">
-                        如果平静是信仰的目的，那么我觉得我在库克找到了我的信仰。宁静的澙湖，明媚的阳光，淳朴快乐的库克人……过滤掉一切的不安与浮躁，是一个不会被惊醒的梦。
+                        <%= travel.sentiment %>
                       </p>
                       <p class="small-text clearfix">
                         <span class="icon-time"><%= l travel.created_at %></span>
-                        <span class="icon-pepole"><%= travel.read_count %>人</span>
-                        <span class="icon-heart"><%= travel.like_count %></span>
+                        <span class="icon-pepole"><%= travel.read_count || 0 %>人</span>
+                        <span class="icon-heart"><%= travel.like_count || 0 %></span>
                         <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
                       </p>
                     </div>
