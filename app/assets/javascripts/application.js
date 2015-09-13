@@ -15,6 +15,8 @@
 //= require kindeditor
 //= require plugins/jquery.event.drag-1.5.min
 //= require plugins/jquery.touchSlider
+//= require plugins/jquery.validate
+//= require plugins/jquery.validate.messages_zh
 //= require plugins/banner
 //= require plugins/slide
 //= require plugins/icheck

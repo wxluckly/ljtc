@@ -27,3 +27,16 @@
     </div>
   </div>
 </div>
+
+<% content_for :js do %>
+<script type="text/javascript">
+  $(function(){
+    var validator = $("#new_user").validate({
+      rules: {
+        "user[email]": { required: true, email: false },
+        "user[password]": { required: true }
+      }
+    })
+  })
+</script>
+<% end %>

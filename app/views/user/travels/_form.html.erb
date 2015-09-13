@@ -132,46 +132,54 @@
     $('.a-list label').addClass('label-check');
     $('.a-list2 label').addClass('label-check');
 
-      //自定义单选框
-      $('.a-list input').each(function(){
-        var self = $(this),
-        label = self.next(),
-        label_text = label.text();
+    $('.a-list input').each(function(){
+      var self = $(this),
+      label = self.next(),
+      label_text = label.text();
 
-        label.remove();
-        self.iCheck({
-          checkboxClass: 'icheckbox_line-red',
-          radioClass: 'iradio_line-red',
-          insert: '<div class="icheck_line-icon"></div>' + label_text
-        });
+      label.remove();
+      self.iCheck({
+        checkboxClass: 'icheckbox_line-red',
+        radioClass: 'iradio_line-red',
+        insert: '<div class="icheck_line-icon"></div>' + label_text
       });
-
-            //自定义单选框
-      $('.a-list2 input').each(function(){
-        var self = $(this),
-        label = self.next(),
-        label_text = label.text();
-
-        label.remove();
-        self.iCheck({
-          checkboxClass: 'icheckbox_line-red',
-          radioClass: 'iradio_line-red',
-          insert: '<div class="icheck_line-icon"></div>' + label_text
-        });
-      });
-
-    })
-
-  $(function(){
-    $('#finished_btn').click(function(){
-      $('#is_finished').val(true);
-      $('#new_travel').submit();
     });
 
-    //上传文件
-    $("#travel_cover").change(function(){
-       $(".img-input").val($("#travel_cover").val());
-     })
+    $('.a-list2 input').each(function(){
+      var self = $(this),
+      label = self.next(),
+      label_text = label.text();
+
+      label.remove();
+      self.iCheck({
+        checkboxClass: 'icheckbox_line-red',
+        radioClass: 'iradio_line-red',
+        insert: '<div class="icheck_line-icon"></div>' + label_text
+      });
+    });
+
   })
+
+$(function(){
+  $('#finished_btn').click(function(){
+    $('#is_finished').val(true);
+    $('#new_travel').submit();
+  });
+
+  //上传文件
+  $("#travel_cover").change(function(){
+    $(".img-input").val($("#travel_cover").val());
+  })
+
+  var validator = $("#new_travel").validate({
+    rules: {
+      "travel[title]": { required: true },
+      "travel[line]": { required: true },
+      "travel[cover]": { required: true },
+      "travel[content]": { required: true },
+      "travel[sentiment]": { required: true }
+    }
+  })
+})
 </script>
 <% end %>
