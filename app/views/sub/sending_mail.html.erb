@@ -1,0 +1,21 @@
+<div class="bg-page find-password">
+  <div class="form-container">
+    <div class="form-content">
+      <form>
+        <h3>找回密码</h3>
+        <i class="icon-email"></i>
+        <p class="text-notice">
+          我们已向您的注册邮箱<%= "#{@code.first}***#{@code.last}@#{@domain}" %>发送了一封密码找回邮件，请您注意 <a href="http://<%= @domain %>">接收邮件</a>。
+        </p>
+        <div class="form-group">
+          <a class="btn btn-mar" type="submit" href="http://<%= @domain %>">去邮箱接收邮件</a>
+        </div>
+        <p class="small-notice small-notice2 clearfix">
+          <span>记得密码？</span>
+          <a href="/users/sign_in">马上登录</a>
+          <a class="back" href="/">返回首页</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

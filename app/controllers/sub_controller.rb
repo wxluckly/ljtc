@@ -18,4 +18,10 @@ class SubController < ApplicationController
   def qa
     
   end
+
+  def sending_mail
+    @code = session[:email].split('@').first
+    @domain = session[:email].split('@').last
+    render layout: 'full'
+  end
 end
