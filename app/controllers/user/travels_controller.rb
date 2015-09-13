@@ -12,6 +12,7 @@ class User::TravelsController < User::BaseController
 
   def new
     @travel = current_user.travels.new(event_id: params[:event_id])
+    @show_event = params[:event_id].present? ? true : false
   end
 
   def create
