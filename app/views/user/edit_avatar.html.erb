@@ -17,11 +17,16 @@
     <div class="inner-module">
       <div class="form-module">
         <h2 class="form-title">我的头像</h2>
-        <%= simple_form_for(@user, as: "user", url: user_update_avatar_path(@user), html: {class: "form-horizontal"}, method: 'PUT') do |f| %>
+        <%= simple_form_for(@user, as: "user", url: user_update_avatar_path(@user), html: {class: "form-horizontal", :multipart => true}, method: 'PUT') do |f| %>
         <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
         <div class="form-row clearfix">
-          <label><em>*</em>上传图片：</label>
-          <%= f.input :avatar, type: 'text', label: false %>
+          <em>*</em>上传图片：
+          <div class="input-div">
+            <div class="clearfix">
+              <input class="img-input" type="text" id="url1" placeholder="上传一张封面图，图片大小小于2M" value="" />
+              <div class="input file optional travel_cover">上传文件<input class="file optional" type="file" name="user[avatar]" id="user_avatar"></div>
+            </div>
+          </div>
         </div>
         <div class="form-row clearfix">
           <input class="btn btn-save" type="submit" value="保存" />
