@@ -88,13 +88,14 @@ div.flicking_con a.on{background-position:0 -21px}
 .title{ font-size: 0; margin-bottom: 40px; font-weight: normal;}
 .title span{ font-size: 28px; color: #505050;}
 
-.title .more{ font-size: 16px; font-weight: normal; color: #969696; padding-left: 24px; margin: 0 0 0 60px; line-height: 28px; background: url('<%= image_url "right.png" %>') no-repeat 0 center;}
-
-.more{ font-size: 14px; font-weight: normal; color: #969696; padding-left: 24px; margin: 0 0 0 20px; line-height: 28px; background: url('<%= image_url "moremini.png" %>') no-repeat 0 center;}
-
 .title span,
 .title .more{display: block; float: left;}
 .title a:hover{color: #e70000;}
+
+.title .more{ font-size: 16px; float: right; font-weight: normal; color: #969696; padding-left: 24px; margin: 0 0 0 60px; line-height: 28px; background: url('<%= image_url "right.png" %>') no-repeat 0 center;}
+
+.more{ font-size: 14px; font-weight: normal; color: #969696; padding-left: 24px; margin: 0 0 0 20px; line-height: 28px; background: url('<%= image_url "moremini.png" %>') no-repeat 0 center;}
+
 .hot-address{ font-size: 0; margin-left: -20px;}
 .hot-address li{ float: left; margin: -20px 0 0 20px; width: 320px;}
 .hot-address li a{ display: block; margin-top: 20px; position: relative;}
@@ -123,8 +124,9 @@ div.flicking_con a.on{background-position:0 -21px}
 .list-description h3 a{ font-size: 20px; font-weight: normal; color: #146cff; display: block; width: 100%; height: 22px; line-height: 22px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
 .list-description .summary{ font-size: 14px; color: #505050; line-height: 22px; text-align: justify; height: 66px; overflow: hidden; margin: 10px 0 10px;}
 .list-description .small-text{ font-size: 12px; color: #969696;}
-.list-description .small-text span{ display: block; float: left; width: 92px; padding-right: 20px; height: 24px; line-height: 24px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
-.list-description .small-text .icon-heart{ padding: 0 20px 0 20px; width: 72px; background: url('<%= image_url "heart.png" %>') no-repeat left center; color: #e70000;}
+.list-description .small-text span{ display: block; float: left; width: 90px; padding-right: 10px; height: 24px; line-height: 24px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+.list-description .small-text .icon-heart{ padding: 0 10px 0 20px; width: 40px; background: url('<%= image_url "heart.png" %>') no-repeat left center; color: #e70000;}
+.list-description .small-text .icon-share0{ padding: 0 10px 0 20px; width: 40px; background: url('<%= image_url "share0.png" %>') no-repeat left center;}
 .list-description .small-text .from{ padding-right: 0;}
 
 
@@ -170,17 +172,20 @@ div.flicking_con a.on{background-position:0 -21px}
 .mark-right a em{ font-size: 12px; color: #787878; display: block;}
 .mark-right a:hover{ color: #505050;}
 .mark-right .share{ border-right: 1px solid #f3f3f3; background: url('<%= image_url "dotted.png" %>') no-repeat 18px -526px;}
+.mark-right .share.active{ background-position: 18px -2356px;}
 .mark-right .target-addr{ background: url('<%= image_url "dotted.png" %>') no-repeat 18px -352px; width: 78px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
 .mark-right .like{  background: url('<%= image_url "dotted.png" %>') no-repeat 18px -442px;}
 .mark-right .like.active{ background-position: 18px -2195px;}
 
 .details-container{ position: relative; z-index: 1;}
-.details-left-bar{ float: left; width: 720px; padding-top: 20px; line-height: 30px;}
+.details-left-bar{ float: left; width: 780px; padding-top: 20px; padding-left: 20px; line-height: 30px;}
 .details-left-bar img{ width: 100%; height: auto;}
-.details-right-bar{ float: right; width: 170px;}
+.details-right-bar{ float: right; width: 160px;}
 .details-left-bar h2{ font-size: 20px; font-weight: normal; color: #0a6cff; padding: 20px 0; margin-bottom: 15px; border-bottom: 1px solid #c8c8c8; position: relative;}
 .details-left-bar .travel-line{ font-size: 18px; color: #646464; padding-bottom: 40px; border-bottom: 1px solid #c8c8c8; line-height: 30px;}
 .details-left-bar p{ word-break: break-all; font-size: 14px; line-height: 30px; color: #646464; text-align: justify; padding-bottom: 20px;}
+.details-left-bar .join{ text-align: right;}
+.details-left-bar .join .btn{ text-align: center; display: block;width: 100px; height: 36px; line-height: 36px; color: #fff; font-size: 14px; background-color: #e70000;}
 .details-left-bar p img{ width: 100%; height: auto; display: block; margin: 0 0 20px;}
 .travel-record{ border-bottom: 1px solid #c8c8c8;}
 .right-nav { padding-top: 50px; *width: 0px;}
@@ -206,7 +211,7 @@ div.flicking_con a.on{background-position:0 -21px}
 
 #summary-t{ *height: 600px; min-height: 600px;}
 .details-left-bar .item{ *height: 150px; min-height: 150px;}
-.details-right-bar .navFix{ left: 50%; margin-left:330px; top: 68px; *top: 10px; background-color: #f0f0f0; z-index: 6;}
+.details-right-bar .navFix{ left: 50%; margin-left:340px; top: 68px; *top: 10px; background-color: #f0f0f0; z-index: 6;}
 
 
 
@@ -275,11 +280,11 @@ div.flicking_con a.on{background-position:0 -21px}
 .head-regulation h1{ font-size: 50px; color: #fff; font-weight: normal; margin: 45px auto 90px;}
 
 .form-row{ margin-bottom: 20px;}
-.form-row label{ width: 240px; line-height: 48px; font-size: 18px; float: left; text-align: right;}
-.form-row label em{ font-style: normal; color: #e70000; font-size: 24px; vertical-align: middle; margin-right: 20px; line-height: 1;}
-.form-row input{ float: left; width: 615px; padding: 9px 10px; *padding: 10px 10px; border: 1px solid #ededed; background-color: #fff; font-size: 20px; color: #505050;}
+.form-row label{ width: 240px; line-height: 42px; font-size: 18px; float: left; text-align: right;}
+.form-row label em{ font-style: normal; color: #e70000; font-size: 24px; vertical-align: middle; margin-right: 10px; line-height: 1;}
+.form-row input{ float: left; width: 615px; padding: 9px 10px; *padding: 10px 10px; border: 1px solid #ededed; background-color: #fff; font-size: 16px; color: #505050;}
 .form-title{ color: #505050; font-size: 28px; font-weight: normal; margin: 40px 0;}
-.form-row .btn-save{ width: 156px; background-color: #e70000; color: #fff; margin: 40px 0 80px 721px; padding: 3px 0; border:0; cursor: pointer;}
+.form-row .btn-save{ width: 156px; background-color: #e70000; color: #fff; margin: 40px 0 80px 721px; padding: 8px 0; border:0; cursor: pointer;}
 .form-row .btn-right{ float: right;}
 
 
@@ -362,7 +367,7 @@ div.flicking_con a.on{background-position:0 -21px}
 .edit-box .edit-content2 em{ left: -22px;}
 
 .edit-box .edit-content2 input,
-.edit-box .edit-content2 textarea{ width: 738px; border:2px dashed #999; font-size: 16px; color: #b4b4b4;}
+.edit-box .edit-content2 textarea{ width: 738px; border:2px dashed #dadada; font-size: 16px; color: #b4b4b4;}
 
 .edit-box .edit-content2 input{ padding: 0 20px; height: 48px; line-height: 48px;}
 
@@ -402,7 +407,7 @@ div.flicking_con a.on{background-position:0 -21px}
 
 .input-div .input{ width: 100px; height: 36px; line-height: 36px; margin-top: 8px; text-align: center; position: relative; font-size: 16px; color: #fff;  background-color: #e70000; float: right;}
 .input-div .input .file{width: 100px; height: 36px; border:0; position: absolute; left: 0; top: 0; opacity: 0; filter:alpha(opacity=0); padding: 0; cursor: pointer;}
-.form-up .input{ margin-top: 6px;}
+.form-up .input{ margin-top: 3px;}
 /* ouzhou
 ========================================================================== */
 .head-img,
