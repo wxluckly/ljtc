@@ -9,7 +9,7 @@ if defined?(ActionMailer)
 
     def reset_password_instructions(record, token, opts={})
       @token = token
-      devise_mail(record, :reset_password_instructions, opts)
+      devise_mail(record, :reset_password_instructions_cn, opts)
     end
 
     def unlock_instructions(record, token, opts={})
