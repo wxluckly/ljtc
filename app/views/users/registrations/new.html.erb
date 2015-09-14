@@ -2,7 +2,7 @@
   <div class="form-container form-register">
     <div class="form-content">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <h3>马上注册，即可参与上传攻略，赢大奖！</h3>
+      <h3>马上注册，即可参与活动，赢大奖！</h3>
       <div>
         <div class="form-group">
           <em class="start-red">*</em>
@@ -20,6 +20,7 @@
           <!-- <p class="error">请输入正确的邮箱格式</p> -->
         </div>
         <div class="form-group">
+          <em class="start-red">*</em>
           <%= f.input :name, required: true, autofocus: true, placeholder: '真实姓名', type: 'text', label: false %>
           <!-- <p class="error">请输入真实姓名</p> -->
         </div>
