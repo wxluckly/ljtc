@@ -17,6 +17,7 @@
 //= require plugins/jquery.touchSlider
 //= require plugins/jquery.validate
 //= require plugins/jquery.validate.messages_zh
+//= require plugins/placeholder
 //= require plugins/banner
 //= require plugins/slide
 //= require plugins/icheck
