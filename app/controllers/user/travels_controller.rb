@@ -16,7 +16,7 @@ class User::TravelsController < User::BaseController
   end
 
   def create
-    @travel = current_user.travels.new(travel_params)
+    @travel = current_user.travels.new(travel_params.merge(is_verified: true))
     respond_to do |format|
       if @travel.save
         if @travel.is_finished?
