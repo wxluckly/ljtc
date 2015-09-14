@@ -95,6 +95,7 @@
                         <span>作者：<%= travel.user.nickname %></span>
                         <span><%= travel.created_at.to_date %></span>
                         <span class="icon-heart"><%= travel.like_count || 0 %></span>
+                        <span class="icon-share0"><%= travel.share_count || 0 %></span>
                         <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
                       </p>
                     </div>
