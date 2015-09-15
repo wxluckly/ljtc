@@ -24,6 +24,7 @@
 //= require plugins/buttonLite
 //= require plugins/bshareC0
 //= require plugins/menu
+//= require plugins/backtop
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({
