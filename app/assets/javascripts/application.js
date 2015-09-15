@@ -24,6 +24,7 @@
 //= require plugins/slide
 //= require plugins/icheck
 //= require plugins/menu
+//= require plugins/backtop
 
 $( document ).on("click", "#like_travel", function() {
   $.ajax({
