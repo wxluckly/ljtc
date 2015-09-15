@@ -6,13 +6,14 @@ Rails.application.routes.draw do
 
   resources :travels
   resources :areas
+  resources :comments
 
   namespace :ajax do
     post :like_travel, :share_weibo
   end
 
   namespace :sub do
-    get :event_zero, :event_one, :event_two, :event_three, :event_four, :qa, :product, :rule, :sending_mail
+    get :event_zero, :event_one, :event_two, :event_three, :event_four, :qa, :product, :rule, :sending_mail, :name_list
   end
 
   namespace :user do

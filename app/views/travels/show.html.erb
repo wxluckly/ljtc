@@ -69,25 +69,31 @@
           </div>
           
           <!-- 评论开始 -->
-          <div class="review">
-            <h2><em>10</em>条评论</h2>
+          <div class="review" id="review_area">
+            <h2><em><%= @travel.comments.count %></em>条评论</h2>
             <ul>
+              <% @travel.comments.order('id desc').each do |comment| %>
               <li class="clearfix">
                 <div class="circle-img left">
-                  <img width="40" height="40" src="images/face.jpg">
-                  <img width="40" height="40" src="images/grey.png" class="circle-mask">
+                  <%= image_tag comment.user.avatar_url(:v148x148), height: "40", width: "40" %>
+                  <img width="40" height="40" src="<%= image_url 'grey.png' %>" class="circle-mask">
                 </div>
                 <div class="review-text right">
-                  <p><em>monicatan：</em>我们只有七天时间，两个女生，能给我们合适线路建议吗？还有交通信息</p>
-                  <p class="time-text clearfix"><span class="left">2015-09-15 21:42</span><a class="right" href="javascript:;">删除</a><a class="right" href="javascript:;">回复</a></p>
+                  <p><em><%= comment.user.nickname %>：</em><%= comment.content %></p>
+                  <p class="time-text clearfix"><span class="left"><%= l comment.created_at %></span><a class="right" href="javascript:;">删除</a><a class="right" href="javascript:;">回复</a></p>
                 </div>
               </li>
+              <% end %>
             </ul>
-            <div>
-              <textarea placeholder="发表评论："></textarea>
+            <div> 
+              <%= simple_form_for(@travel.comments.new, as: "comment", url: comments_path) do |f| %>
+              <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+              <%= tag(:input, type: "hidden", name: '[comment]travel_id', value: @travel.id) %>
+              <%= f.input :content, label: false, placeholder: "发表评论：" %>
               <p class="btn-right clearifx">
-                <a class="right" href="javascript:;">发表</a>
+                <%= f.button :submit, "发表", class: 'right' %>
               </p>
+              <% end %>
             </div>
           </div>
           <!-- 评论结束 -->
