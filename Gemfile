@@ -1,7 +1,7 @@
 # source 'https://rubygems.org'
 source 'http://ruby.taobao.org'
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.0'
 
 # 数据库
 gem 'mysql2', '0.3.16'
@@ -27,7 +27,7 @@ gem 'mini_exiftool', '2.5.0'
 gem 'settingslogic'
 
 # 权限验证
-gem 'devise', '3.4.1'
+gem 'devise', '~> 3.5.2'
 
 # 文件和图片处理
 gem 'mini_magick', '3.7.0'
@@ -37,7 +37,7 @@ gem 'carrierwave', '0.10.0'
 gem 'rails_kindeditor', '0.4.5'
 
 # Use unicorn as the app server
-gem 'unicorn', '4.8.3'
+gem 'unicorn', '~> 4.8.3'
 
 group :development do
   gem 'spring', '1.1.3'
