@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :travels
   resources :areas
+  resources :comments
 
   namespace :ajax do
     post :like_travel, :share_weibo
