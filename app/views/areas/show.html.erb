@@ -71,9 +71,7 @@
             <a class="item-img" href="/travels/<%= travel.id %>">
               <%= image_tag travel.cover_url(:v320x280), width: "320", height: "280" %>
               <!-- 列表图片宽高限制： width="320" height="280" -->
-              <h4>
-                <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
-              </h4>
+              <h4><%= travel.title %></h4>
             </a>
             <!-- <div class="item-info">
               <h4>
