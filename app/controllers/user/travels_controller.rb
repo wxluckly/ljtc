@@ -34,6 +34,7 @@ class User::TravelsController < User::BaseController
 
   def edit
     @travel = current_user.travels.find(params[:id])
+    @show_event = @travel.present? ? true : false
   end
 
   def update

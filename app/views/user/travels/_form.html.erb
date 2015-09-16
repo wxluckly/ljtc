@@ -47,7 +47,7 @@
               </div>
             </div>
           </li>
-
+          <% unless @show_event %>
           <li class="clearfix">
             <i class="num-bg"><%= @show_event ? 4 : 3 %></i>
             <span class="edit-title">填写路线</span>
@@ -58,9 +58,9 @@
               </div>
             </div>
           </li>
-
+          <% end %>
           <li class="clearfix">
-            <i class="num-bg"><%= @show_event ? 5 : 4 %></i>
+            <i class="num-bg"><%= @show_event ? 4 : 4 %></i>
             <span class="edit-title">上传封面</span>
             <div class="edit-content2">
               <div class="edit-content-inner">
@@ -77,7 +77,7 @@
           </li>
 
           <li class="clearfix">
-            <i class="num-bg"><%= @show_event ? 6 : 5 %></i>
+            <i class="num-bg"><%= @show_event ? 5 : 5 %></i>
             <span class="edit-title">攻略内容</span>
             <div class="edit-content2">
               <div class="edit-content-inner">
@@ -85,15 +85,28 @@
                 <div class="input-div">
                   <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :simple_mode => false, :editor_id => 'my_editor' %>
                 </div>
+                <% if @show_event %>
+                <div class="all-submit">
+                  <div class="clearfix">
+                    <div class="form-rules">
+                      <input class="checked-icon" id="rules-link" type="checkbox" checked="1"/>
+                      <label>我已仔细阅读<a href="/sub/rule" target="_blank">《活动细则内容》</a></label>
+                    </div>
+                    <%= f.button :button, "上传攻略", id: 'finished_btn', class: 'btn-up', "data-disable-with" => "保存中..." %>
+                    <%= f.button :submit, "保存草稿", class: 'btn-link', "data-disable-with" => "保存中..." %>
+                  </div>
+                </div>
+                <% end %>
               </div>
             </div>
           </li>
-
+          <% unless @show_event %>
           <li class="clearfix">
             <i class="num-bg"><%= @show_event ? 7 : 6 %></i>
             <span class="edit-title">攻略总结</span>
             <div class="edit-content2">
               <div class="edit-content-inner">
+                <em>*</em>
                 <%= f.input(:sentiment, label: false, type: 'text', placeholder: '总结：例如旅行感悟等等') %>
               </div>
               <div class="all-submit">
@@ -108,6 +121,7 @@
               </div>
             </div>
           </li>
+          <% end %>
         </ul>
         <% end %>
       </div>
@@ -174,10 +188,12 @@ $(function(){
   var validator = $("#new_travel").validate({
     rules: {
       "travel[title]": { required: true },
+      <% unless @show_event %>
       "travel[line]": { required: true },
+      "travel[sentiment]": { required: true },
+      <% end %>
       "travel[cover]": { required: true },
-      "travel[content]": { required: true },
-      "travel[sentiment]": { required: true }
+      "travel[content]": { required: true }
     }
   })
 })
