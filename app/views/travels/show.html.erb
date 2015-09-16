@@ -44,12 +44,14 @@
     <div class="inner-module details-grey">
       <div class="details-container clearfix">
         <div class="details-left-bar" id="contentLeft">
+          <% if @travel.event_id.blank? %>
           <div class="block-module item" id="line-t">
             <h2>攻略路线：</h2>
             <div class="travel-line">
               <%= @travel.line %>
             </div>
           </div>
+          <% end %>
           <div class="block-module item" id="record-t">
             <h2>攻略记录：</h2>
             <div class="travel-record">
@@ -57,12 +59,14 @@
             </div>
           </div>
           <div class="block-module item" id="summary-t">
+            <% if @travel.event_id.blank? %>
             <h2>旅程总结：</h2>
             <div>
               <p>
                 <%= raw @travel.sentiment %> 
               </p>
             </div>
+            <% end %>
             <p class="join clearfix">
               <a class="btn btn-warning right" href="/user/travels/new">我也要参加</a>
             </p>
@@ -103,6 +107,7 @@
           <!-- 评论结束 -->
         </div>
         <div class="details-right-bar">
+          <% if @travel.event_id.blank? %>
           <div class="right-nav" id="menu">
             <ul>
               <li>
@@ -119,6 +124,7 @@
               </li>
             </ul>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
