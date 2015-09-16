@@ -71,8 +71,11 @@
             <a class="item-img" href="/travels/<%= travel.id %>">
               <%= image_tag travel.cover_url(:v320x280), width: "320", height: "280" %>
               <!-- 列表图片宽高限制： width="320" height="280" -->
+              <h4>
+                <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
+              </h4>
             </a>
-            <div class="item-info">
+            <!-- <div class="item-info">
               <h4>
                 <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
               </h4>
@@ -90,7 +93,7 @@
                   <%= image_tag 'circle40.png', width: "40", height: "40", class: 'circle-mask' %>
                 </div>
               </div>
-            </div>
+            </div> -->
           </li>
           <!-- 结束 -->
           <% end %>
