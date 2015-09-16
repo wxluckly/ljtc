@@ -61,11 +61,11 @@
     <div class="inner-module">
       <h2 class="title clearfix">
         <span>爱晒美图</span>
-        <a class="more right" href="/user/travels/new">我要参与</a>
+        <a class="more right" href="/user/travels/new?event_id=1">我要参与</a>
       </h2>
       <div class="water-list images-list">
         <ul class="clearfix">
-          <% @travels.each do |travel| %>
+          <% @travel_events.each do |travel| %>
           <!-- 开始 -->
           <li>
             <a class="item-img" href="/travels/<%= travel.id %>">
