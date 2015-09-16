@@ -52,7 +52,9 @@
           <!-- 结束 -->
           <% end %>
         </ul>
-        <%= will_paginate @travels, previous_label: '上一页', next_label: '下一页' %>
+        <div class="clearfix">
+          <%= will_paginate @travels, previous_label: '上一页', next_label: '下一页' %>
+        </div>
       </div>
     </div>
 
