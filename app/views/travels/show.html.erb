@@ -76,7 +76,7 @@
           <div class="review" id="review_area">
             <h2><em><%= @travel.comments.count %></em>条评论</h2>
             <ul>
-              <% @travel.comments.order('id desc').each do |comment| %>
+              <% @comments.each do |comment| %>
               <li class="clearfix">
                 <div class="circle-img left">
                   <%= image_tag comment.user.avatar_url(:v148x148), height: "40", width: "40" %>
@@ -93,6 +93,7 @@
               </li>
               <% end %>
             </ul>
+            <%= will_paginate @comments, previous_label: '上一页', next_label: '下一页' %>
             <div> 
               <%= simple_form_for(@travel.comments.new, as: "comment", url: comments_path) do |f| %>
               <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>

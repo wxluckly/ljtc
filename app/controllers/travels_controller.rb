@@ -2,6 +2,7 @@ class TravelsController < ApplicationController
   def show
     @unfix = true
     travel = Travel.find(params[:id])
+    @comments = @travel.comments.order('id desc').paginate(page: params[:page])
     if current_user && travel.user_id == current_user.id
       @travel = travel
     else
