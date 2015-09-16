@@ -33,7 +33,7 @@
             <a class="target-addr" href="javascript:;"><%= Travel.areas.value_label_map[@travel.area_id.to_s] %></a>
             <a href="javascript:void(0);" id='liked_travel' class="like active" <% unless liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
             <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like" <% if liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
-            <a class="share" href="javascript:void();" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a>
+            <a class="share" href="javascript:void(0);" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a>
           </div>
         </div>
       </div>
@@ -126,30 +126,39 @@
 <% content_for :js do %>
 <script type="text/javascript">
 
+  // function click_share(){
+  //   $.post("/ajax/share_weibo", {
+  //     id: '<%= @travel.id %>'
+  //   },function(){}, "script");
+  //   shareInterval = setInterval(function(){
+  //     try {
+  //       bShare.share(event, 'sinaminiblog',0);
+  //       clearInterval(shareInterval);
+  //       return false;
+  //     }catch (e) {
+  //       bShare.init();
+  //     } 
+  //   },100)
+  // }
+
   function click_share(){
     $.post("/ajax/share_weibo", {
       id: '<%= @travel.id %>'
     },function(){}, "script");
-    shareInterval = setInterval(function(){
-      try {
-        bShare.share(event, 'sinaminiblog',0);
-        clearInterval(shareInterval);
-        return false;
-      }catch (e) {
-        bShare.init();
-      } 
-    },100)
+    var title = '<%= CGI::escape "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖! #{@travel.sentiment.gsub(/\r\n/, '')}" %>';
+    var url = "<%= CGI::escape request.url %>";
+    window.open("http://service.weibo.com/share/share.php?title="+ title +"&url="+url+"&source=bookmark&appkey=&pic=&ralateUid=");
   }
 
 
   $(document).ready(function(){
-    bShare.init();
+    // bShare.init();
 
-    bShare.addEntry({
-      title: "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖!",
-      url: "<%= request.url %>",
-      summary: "<%= @travel.sentiment.gsub(/\r\n/, '') %>"
-    });
+    // bShare.addEntry({
+    //   title: "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖!",
+    //   url: "<%= request.url %>",
+    //   summary: "<%= @travel.sentiment.gsub(/\r\n/, '') %>"
+    // });
 
       //固定顶部导航
       var headHeight=$(".details-banner").height();
