@@ -155,7 +155,7 @@
     $.post("/ajax/share_weibo", {
       id: '<%= @travel.id %>'
     },function(){}, "script");
-    var title = '<%= CGI::escape "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖! #{@travel.sentiment.gsub(/\r\n/, '')}" %>';
+    var title = '<%= CGI::escape "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖! #{(@travel.sentiment || '').gsub(/\r\n/, '')}" %>';
     var url = "<%= CGI::escape request.url %>";
     window.open("http://service.weibo.com/share/share.php?title="+ title +"&url="+url+"&source=bookmark&appkey=&pic=&ralateUid=");
   }
