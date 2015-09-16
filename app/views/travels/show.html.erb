@@ -80,7 +80,11 @@
                 </div>
                 <div class="review-text right">
                   <p><em><%= comment.user.nickname %>：</em><%= comment.content %></p>
-                  <p class="time-text clearfix"><span class="left"><%= l comment.created_at %></span><a class="right" href="javascript:;">删除</a><a class="right" href="javascript:;">回复</a></p>
+                  <p class="time-text clearfix">
+                    <span class="left"><%= l comment.created_at %></span>
+                    <% if @travel.user == current_user %><%= link_to '删除', comment_path(comment), method: 'DELETE', class: 'right', data: { confirm:'您确认删除吗？' } %><% end %>
+                    <a class="right" href="javascript:void(0);" onclick='reply("<%= comment.user.nickname %>");'>回复</a>
+                  </p>
                 </div>
               </li>
               <% end %>
@@ -148,6 +152,11 @@
     var title = '<%= CGI::escape "我参加了工商银行“爱go 爱晒 爱分享”活动，期待能赢取2000元大奖! #{@travel.sentiment.gsub(/\r\n/, '')}" %>';
     var url = "<%= CGI::escape request.url %>";
     window.open("http://service.weibo.com/share/share.php?title="+ title +"&url="+url+"&source=bookmark&appkey=&pic=&ralateUid=");
+  }
+
+  function reply(name){
+    $('#comment_content').text('回复 ' + name + ': ');
+    $('#comment_content').focus();
   }
 
 
