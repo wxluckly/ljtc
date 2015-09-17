@@ -16,6 +16,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [80, 80]
   end
 
+  def default_url
+    "face.jpg"
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
