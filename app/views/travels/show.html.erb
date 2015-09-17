@@ -52,8 +52,11 @@
             </div>
           </div>
           <% end %>
+          <% if @travel.event_id.present? %>
+          <%= image_tag @travel.cover_url %>
+          <% end %>
           <div class="block-module item" id="record-t">
-            <h2>攻略记录：</h2>
+            <h2><% if @travel.event_id.blank? %>攻略记录<% else %>图片简介<% end %>：</h2>
             <div class="travel-record">
               <%= raw @travel.content %> 
             </div>
