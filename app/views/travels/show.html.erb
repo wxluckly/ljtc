@@ -71,7 +71,11 @@
             </div>
             <% end %>
             <p class="join clearfix">
+              <% if @travel.event_id.blank? %>
               <a class="btn btn-warning right" href="/user/travels/new">我也要参加</a>
+              <% else %>
+              <a class="btn btn-warning right" href="/user/travels/new?event_id=<%= @travel.event_id %>">我也要参加</a>
+              <% end %>
             </p>
           </div>
           
