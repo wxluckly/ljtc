@@ -1,4 +1,9 @@
-<div class="bg-page register-bg">
+<style type="text/css">
+  html{ background: url('<%= image_url "bg2.jpg" %>') repeat-y center top; background-size: auto 100%;}
+</style>
+
+
+<div class="bg-page">
   <div class="form-container form-register">
     <div class="form-content">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
