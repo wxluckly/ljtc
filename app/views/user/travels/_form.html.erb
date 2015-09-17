@@ -61,7 +61,7 @@
           <% end %>
           <li class="clearfix">
             <i class="num-bg"><%= @show_event ? 4 : 4 %></i>
-            <span class="edit-title">上传封面</span>
+            <span class="edit-title"><% if @show_event %>上传美图<% else %>上传封面<% end %></span>
             <div class="edit-content2">
               <div class="edit-content-inner">
                 <em>*</em>
@@ -78,12 +78,16 @@
 
           <li class="clearfix">
             <i class="num-bg"><%= @show_event ? 5 : 5 %></i>
-            <span class="edit-title">攻略内容</span>
+            <span class="edit-title"><% if @show_event %>图片简介<% else %>攻略内容<% end %></span>
             <div class="edit-content2">
               <div class="edit-content-inner">
                 <em>*</em>
                 <div class="input-div">
-                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :simple_mode => false, :editor_id => 'my_editor' %>
+                  <% if @show_event %>
+                  <%= f.kindeditor :content, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :editor_id => 'my_editor', items: ["fontname","fontsize","|","forecolor","hilitecolor","bold","italic","underline","removeformat","|","justifyleft","justifycenter","justifyright","insertorderedlist","insertunorderedlist","|","emoticons"] %>
+                  <% else %>
+                  <%= f.kindeditor :content, simple_mode: false, filterMode: false, window_onload: true, name: 'travel[content]', class: 'ke-container', :editor_id => 'my_editor' %>
+                  <% end %>
                 </div>
                 <% if @show_event %>
                 <div class="all-submit">

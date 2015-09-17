@@ -137,21 +137,6 @@
 <% content_for :js do %>
 <script type="text/javascript">
 
-  // function click_share(){
-  //   $.post("/ajax/share_weibo", {
-  //     id: '<%= @travel.id %>'
-  //   },function(){}, "script");
-  //   shareInterval = setInterval(function(){
-  //     try {
-  //       bShare.share(event, 'sinaminiblog',0);
-  //       clearInterval(shareInterval);
-  //       return false;
-  //     }catch (e) {
-  //       bShare.init();
-  //     } 
-  //   },100)
-  // }
-
   function click_share(){
     $.post("/ajax/share_weibo", {
       id: '<%= @travel.id %>'

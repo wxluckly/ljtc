@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require plugins/buttonLite
-//= require plugins/bshareC0
 //= require jquery_ujs
 //= require kindeditor
 //= require plugins/jquery.event.drag-1.5.min
