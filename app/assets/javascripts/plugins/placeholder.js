@@ -102,7 +102,66 @@
 
         }
 
+      });
+
+        //遍历所有邮件，添加placeholder模拟事件
+
+      var elementsEm = form.find("input[type='email'][placeholder]");
+
+      elementsEm.each(function() {
+
+        var s = $(this);
+
+        var pValue = s.attr("placeholder");
+
+  var sValue = s.val();
+
+        if (pValue) {
+
+          if (sValue == '') {
+
+            s.val(pValue);
+
+          }
+
+        }
+
       }); 
+       elementsEm.focus(function() {
+
+        var s = $(this);
+
+        var pValue = s.attr("placeholder");
+
+  var sValue = s.val();
+
+        if (sValue && pValue) {
+
+          if (sValue == pValue) {
+
+            s.val('');
+
+          }
+
+        }
+
+      }); 
+       elementsEm.blur(function() {
+
+        var s = $(this);
+
+        var pValue = s.attr("placeholder");
+
+  var sValue = s.val();
+
+        if (!sValue) {
+
+          s.val(pValue);
+
+        }
+
+      }); 
+
        //遍历所有密码框，添加placeholder模拟事件
 
       var elementsPass = form.find("input[type='password'][placeholder]");
