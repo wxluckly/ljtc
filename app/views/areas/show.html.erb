@@ -42,9 +42,11 @@
                     <span class="item-author">作者：<%= travel.user.nickname %></span>
                   </div>
                 </div>
-                <div class="circle-img right">
-                  <img src="<%= travel.user.avatar_url(:thumb) %>" width="40" height="40">
-                  <%= image_tag 'circle40.png', width: "40", height: "40", class: 'circle-mask' %>
+                <div class="circle-imgbox">
+                  <div class="circle-img">
+                    <img src="<%= travel.user.avatar_url(:thumb) %>" width="40" height="40">
+                    <%= image_tag 'circle40.png', width: "40", height: "40", class: 'circle-mask' %>
+                  </div>
                 </div>
               </div>
             </div>
