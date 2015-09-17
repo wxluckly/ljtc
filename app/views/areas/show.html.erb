@@ -66,36 +66,13 @@
       <div class="water-list images-list">
         <ul class="clearfix">
           <% @travel_events.each do |travel| %>
-          <!-- 开始 -->
           <li>
             <a class="item-img" href="/travels/<%= travel.id %>">
               <%= image_tag travel.cover_url(:v320x280), width: "320", height: "280" %>
-              <!-- 列表图片宽高限制： width="320" height="280" -->
               <h4><%= travel.title %></h4>
             </a>
-            <!-- <div class="item-info">
-              <h4>
-                <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
-              </h4>
-              <div class="clearfix">
-                <div class="list-info left">
-                  <div class="clearfix">
-                    <span><%= travel.created_at.to_date %></span>
-                    <span class="icon-pepole"><%= travel.read_count || 0 %>人</span>
-                    <span class="icon-heart"><%= travel.like_count || 0 %></span>
-                    <span class="item-author">作者：<%= travel.user.nickname %></span>
-                  </div>
-                </div>
-                <div class="circle-img right">
-                  <img src="<%= travel.user.avatar_url(:thumb) %>" width="40" height="40">
-                  <%= image_tag 'circle40.png', width: "40", height: "40", class: 'circle-mask' %>
-                </div>
-              </div>
-            </div> -->
           </li>
-          <!-- 结束 -->
           <% end %>
-
         </ul>
         <div class="clearfix">
           <%= will_paginate @travel_events, previous_label: '上一页', next_label: '下一页' %>
