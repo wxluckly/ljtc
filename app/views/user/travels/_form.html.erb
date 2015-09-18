@@ -19,7 +19,7 @@
                   </div>
                 </div>
               </div>
-              <p class="required-select">请选择一个板块</p>
+              <p class="required-select" style="display:none;" id="error_area_id">请选择一个板块</p>
             </div>
           </li>
 
@@ -77,7 +77,7 @@
                   </div>
                 </div>
               </div>
-              <p class="required-select">必须上传一张封面图片</p>
+              <p class="required-select" style="display:none;" id="error_cover">必须上传一张封面图片</p>
             </div>
           </li>
 
@@ -101,8 +101,8 @@
                       <input class="checked-icon" id="rules-link" type="checkbox" checked="1"/>
                       <label>我已仔细阅读<a href="/sub/rule" target="_blank">《活动细则内容》</a></label>
                     </div>
-                    <%= f.button :button, "上传", id: 'finished_btn', class: 'btn-up', "data-disable-with" => "保存中..." %>
-                    <%= f.button :submit, "保存草稿", class: 'btn-link', "data-disable-with" => "保存中..." %>
+                    <%= f.button :button, "上传攻略", id: 'finished_btn', class: 'btn-up', "data-disable-with" => "保存中...", type: :button %>
+                    <%= f.button :button, "保存草稿", id: 'submit_btn', class: 'btn-link', "data-disable-with" => "保存中...", type: :button %>
                   </div>
                 </div>
                 <% end %>
@@ -124,8 +124,8 @@
                     <input class="checked-icon" id="rules-link" type="checkbox" checked="1"/>
                     <label>我已仔细阅读<a href="/sub/rule" target="_blank">《活动细则内容》</a></label>
                   </div>
-                  <%= f.button :button, "上传攻略", id: 'finished_btn', class: 'btn-up', "data-disable-with" => "保存中..." %>
-                  <%= f.button :submit, "保存草稿", class: 'btn-link', "data-disable-with" => "保存中..." %>
+                  <%= f.button :button, "上传攻略", id: 'finished_btn', class: 'btn-up', "data-disable-with" => "保存中...", type: :button %>
+                  <%= f.button :button, "保存草稿", id: 'submit_btn', class: 'btn-link', "data-disable-with" => "保存中...", type: :button %>
                 </div>
               </div>
             </div>
@@ -141,10 +141,23 @@
 
 <% content_for :js do %>
 <script type="text/javascript">
+
+  function validate_form(){
+    var result = true
+    $("#error_area_id").hide();
+    $("#error_cover").hide();
+    if($("[name='travel[area_id]']:checked").val() == undefined){
+      $("#error_area_id").show();
+      result = false;
+    }
+    if($("#travel_cover").val() == ""){
+      $("#error_cover").show();
+      result = false;
+    }
+    return result;
+  }
+
   $(document).ready(function(){
-
-    //获取焦点
-
     $('.edit-box ul li').mouseover(function(){
       $(this).children('i').addClass('focus');
     });
@@ -181,30 +194,35 @@
       });
     });
 
-  })
+    $('#finished_btn').click(function(){
+      if(validate_form() == true){
+        alert(1)
+        $('#is_finished').val(true);
+        $('#new_travel').submit();
+      }
+    });
 
-$(function(){
-  $('#finished_btn').click(function(){
-    $('#is_finished').val(true);
-    $('#new_travel').submit();
+    $("#submit_btn").click(function(){
+      if(validate_form() == true){
+        alert(1)
+        $('#new_travel').submit();
+      }
+    });
+
+    $("#travel_cover").change(function(){
+      $(".img-input").val($("#travel_cover").val());
+    });
+
+    var validator = $("#new_travel").validate({
+      rules: {
+        "travel[title]": { required: true },
+        <% unless @show_event %>
+        "travel[line]": { required: true },
+        "travel[sentiment]": { required: true },
+        <% end %>
+        "travel[content]": { required: true }
+      }
+    });
   });
-
-  //上传文件
-  $("#travel_cover").change(function(){
-    $(".img-input").val($("#travel_cover").val());
-  })
-
-  var validator = $("#new_travel").validate({
-    rules: {
-      "travel[title]": { required: true },
-      <% unless @show_event %>
-      "travel[line]": { required: true },
-      "travel[sentiment]": { required: true },
-      <% end %>
-      "travel[cover]": { required: true },
-      "travel[content]": { required: true }
-    }
-  })
-})
 </script>
 <% end %>
