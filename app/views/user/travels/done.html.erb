@@ -32,7 +32,7 @@
                     </a>
                     <div class="list-description">
                       <h3 class="clearfix">
-                        <a class="title-limit" style="float:right;"> href="/travels/<%= travel.id %>" target="_blank"><%= travel.title %></a>
+                        <a class="title-limit" style="float:right;" href="/travels/<%= travel.id %>" target="_blank"><%= travel.title %></a>
                         <span>
                           <div class="clearfix">
                             <%= link_to '删除攻略', user_travel_path(travel), method: 'DELETE', remote: 'true', class: 'remove', data: { confirm:'您确认删除吗？' } %>
