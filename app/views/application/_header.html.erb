@@ -24,7 +24,7 @@
                 <%= image_tag 'circle.png', class: "mask" %>
               </div>
               <div class="user-center">
-                <a class="user-name" href="javascript:;"><%= current_user.nickname %>
+                <a class="user-name" href="javascript:;"><%= current_user.nickname || ' ' %>
                   <i class="icon-down"></i>
                 </a>
                 <ul>
