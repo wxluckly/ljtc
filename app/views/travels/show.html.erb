@@ -87,15 +87,19 @@
               <% @comments.each do |comment| %>
               <li class="clearfix">
                 <div class="circle-img left">
+                  <% if comment.user %>
                   <%= image_tag comment.user.avatar_url(:v148x148), height: "40", width: "40" %>
+                  <% else %>
+                  <%= image_tag 'face.jpg', height: "40", width: "40" %>
+                  <% end %>
                   <img width="40" height="40" src="<%= image_url 'grey.png' %>" class="circle-mask">
                 </div>
                 <div class="review-text right">
-                  <p><em><%= comment.user.nickname %>：</em><%= comment.content %></p>
+                  <p><em><%= comment.user.try(:nickname) || '游客' %>：</em><%= comment.content %></p>
                   <p class="time-text clearfix">
                     <span class="left"><%= l comment.created_at %></span>
                     <% if @travel.user == current_user %><%= link_to '删除', comment_path(comment), method: 'DELETE', class: 'right', data: { confirm:'您确认删除吗？' } %><% end %>
-                    <% if current_user && @travel.user != current_user %><a class="right" href="javascript:void(0);" onclick='reply("<%= comment.user.nickname %>");'>回复</a><% end %>
+                    <% if @travel.user != current_user %><a class="right" href="javascript:void(0);" onclick='reply("<%= comment.user.try(:nickname) || '游客' %>");'>回复</a><% end %>
                   </p>
                 </div>
               </li>
