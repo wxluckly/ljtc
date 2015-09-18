@@ -50,7 +50,7 @@ class User::TravelsController < User::BaseController
   end
 
   def destroy
-    @travel = current_user.travels.draft.find(params[:id])
+    @travel = current_user.travels.find(params[:id])
     @travel.destroy
     render js: 'location.reload();'
   end
