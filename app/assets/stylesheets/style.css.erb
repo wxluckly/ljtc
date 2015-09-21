@@ -54,7 +54,7 @@ body{ line-height: 1;}
 .user-center ul .exit a:hover{background-position: 18px -585px;}
 
 .user-center ul .up-imgs a{background-position: 18px -670px;}
-.user-center ul .up-imgs a:hover{background-position: 18px -838px;}
+.user-center ul .up-imgs a:hover{background-position: 18px -754px;}
 
 .user-center ul .my-images a{background-position: 18px -835px;}
 .user-center ul .my-images a:hover{background-position: 18px -922px;}
@@ -351,8 +351,10 @@ label.error,
 /* box */
 .box{width:100%; margin:10px auto 60px; background:#fff;}
 .tab_menu{overflow:hidden; margin: 40px 0;}
-.tab_menu li{ float:left; height:30px; padding: 0 45px; font-size: 28px; line-height:30px; color:#505050; text-align:center; cursor:pointer;}
-.tab_menu li.current{color:#e70000;}
+.tab_menu li{ float:left; height:30px; padding: 0 45px; font-size: 28px; line-height:30px; text-align:center; cursor:pointer; color:#505050;}
+.tab_menu li a{ color:#505050;}
+.tab_menu li.current,
+.tab_menu li.current a{color:#e70000;}
 .tab_menu .line-right{ border-right: 1px solid #505050; padding-left: 0;}
 .tab_box .hide{display:none;}
 .tab_box .list-content li .img-content { width: 318px; height: 188px; border: 1px solid #f4f4f4;}
@@ -500,11 +502,12 @@ label.error,
 .list-info{ font-size: 12px; color: #969696; width: 240px; padding-top: 5px;}
 .list-info span{ display: block; width: 80px; float: left; height: 20px; line-height: 20px;}
 .list-info .item-author{ width: 100%;}
-.circle-imgbox{ width: 40px; height: 40px; overflow: hidden; float: right; margin-top: 5px;}
+.circle-imgbox{ width: 40px; height: 40px; float: right; margin-top: 5px;}
 .circle-img,
-.circle-img img{ width: 40px; height: 40px;}
-.circle-img{ position: relative;}
-.circle-img .circle-mask{ position: absolute; left: 0; top: 0; z-index: 4;}
+.circle-img img{ width: 40px; height: 40px; line-height: 0; font-size: 0;}
+.circle-img img{ float: left;}
+
+.circle-img .circle-mask{ margin-top: -40px;}
 .list-info .icon-pepole{ padding-left: 28px; width: 52px; background: url('<%= image_url "icon_05.png" %>') no-repeat left center;}
 .list-info .icon-heart{ padding-left: 19px; width: 61px; background: url('<%= image_url "heart.png" %>') no-repeat left center;}
 
@@ -532,6 +535,7 @@ label.error,
 .before-text{ line-height: 36px; font-size: 16px; text-align: center; margin-bottom: 30px;}
 .event-main{ font-size: 16px; line-height: 36px; text-align: center; border-bottom: 1px solid #e70000; margin-bottom: 60px;}
 .event-module{ margin-bottom: 30px;}
+.event-module p em{ font-weight: bold; font-style: normal; color: #000;}
 .event-main h2{ *position: relative; *z-index: 2; font-size: 24px; height: 30px; background-color: #fff; display: inline; padding: 0 20px;}
 .event-main h2,
 .event-main h3,
@@ -633,4 +637,4 @@ label.error,
 .footer .inner-module p span{ font-size: 14px; color: #505050;*float: left;}
 .footer .inner-module p a:hover{color: #e70000;}
 .footer .inner-module p span{ padding: 0 15px;}
-.footer .inner-module p .right{ padding: 0 0 0 15px; float: right;}
+.footer .inner-module p .right{ padding: 0 0 0 15px; float: right; white-space: nowrap;}
