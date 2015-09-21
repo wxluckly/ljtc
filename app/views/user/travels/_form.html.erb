@@ -132,6 +132,7 @@
           </li>
           <% end %>
         </ul>
+        <%= f.button :submit, "保存", id: 'save_btn', style: 'display1:none;' %>
         <% end %>
       </div>
     </div>
@@ -197,13 +198,13 @@
     $('#finished_btn').click(function(){
       if(validate_form() == true){
         $('#is_finished').val(true);
-        $('#new_travel').submit();
+        $('#save_btn').trigger('click');
       }
     });
 
     $("#submit_btn").click(function(){
       if(validate_form() == true){
-        $('#new_travel').submit();
+        $('#save_btn').trigger('click');
       }
     });
 
