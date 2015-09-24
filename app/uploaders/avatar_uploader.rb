@@ -17,7 +17,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "face.jpg"
+    ActionController::Base.helpers.image_url("face.jpg")
   end
 
   def extension_white_list
