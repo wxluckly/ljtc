@@ -746,10 +746,12 @@
 <!-- 文字滚动 -->
 <script type="text/javascript"> 
 $(document).ready(function(){
+    //折疊菜单隐藏展开
     var tabs_i=0
     $('.vtitle').click(function(){
       var _self = $(this);
       var j = $('.vtitle').index(_self);
+      //if( tabs_i == j ) return false; 
       tabs_i = j;
       $('.vtitle em').each(function(e){
         if(e==tabs_i){
@@ -764,6 +766,7 @@ $(document).ready(function(){
         _self.parent('.slide-contaimner').siblings().find('.vtitle').next('.vcon').slideUp();
       }else{
         _self.next('.vcon').slideUp();
+        _self.find('em').removeClass('v02').addClass('v01');
       }
     });
   });
