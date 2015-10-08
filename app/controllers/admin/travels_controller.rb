@@ -20,7 +20,7 @@ class Admin::TravelsController < Admin::BaseController
   end
 
   def rank
-    @travels = Travel.done.order(:like_count).paginate(page: params[:page])
+    @travels = Travel.done.order(score: :desc).paginate(page: params[:page])
   end
 
   def set_verified

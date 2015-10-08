@@ -7,9 +7,12 @@
       <thead>
         <tr>
           <th>标题</th>
-          <th>内容摘要</th>
+          <th>综合分</th>
           <th>喜欢数</th>
+          <th>分享数</th>
           <th>浏览数</th>
+          <th>用户名</th>
+          <th>用户电话</th>
           <th>操作</th>
         </tr>
       </thead>
@@ -17,9 +20,12 @@
         <% @travels.each do |travel| %>
         <tr>
           <td><%= travel.title %></td>
-          <td><%= travel.content.truncate(10) %></td>
+          <td><%= travel.score %></td>
           <td><%= travel.like_count %></td>
+          <td><%= travel.share_count %></td>
           <td><%= travel.read_count %></td>
+          <td><%= travel.user.name %></td>
+          <td><%= travel.user.mobile %></td>
           <td>
             <%= link_to "编辑", edit_admin_travel_path(travel), target: '_blank', class: 'btn' %>
           </td>

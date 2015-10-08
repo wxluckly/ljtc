@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'welcome#index'
+    resources :comments
     resources :travels do
       member do
         put :set_verified, :set_blocked, :set_unblocked
