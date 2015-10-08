@@ -99,13 +99,16 @@
                   <p class="time-text clearfix">
                     <span class="left"><%= l comment.created_at %></span>
                     <% if @travel.user == current_user %><%= link_to '删除', comment_path(comment), method: 'DELETE', class: 'right', data: { confirm:'您确认删除吗？' } %><% end %>
+                    <% if current_user %>
                     <% if @travel.user != current_user %><a class="right" href="javascript:void(0);" onclick='reply("<%= comment.user.try(:nickname) || '游客' %>");'>回复</a><% end %>
+                    <% end %>
                   </p>
                 </div>
               </li>
               <% end %>
             </ul>
             <%= will_paginate @comments, previous_label: '上一页', next_label: '下一页' %>
+            <% if current_user %>
             <div> 
               <%= simple_form_for(@travel.comments.new, as: "comment", url: comments_path) do |f| %>
               <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
@@ -116,6 +119,7 @@
               </p>
               <% end %>
             </div>
+            <% end %>
           </div>
           <!-- 评论结束 -->
         </div>
