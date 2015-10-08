@@ -27,6 +27,7 @@ class Travel < ActiveRecord::Base
   # validations ...............................................................
   # callbacks .................................................................
   before_save :clean_content
+  before_save :calculate_score
 
   # scopes ....................................................................
   scope :draft, -> { where(is_finished: false) }
@@ -42,6 +43,10 @@ class Travel < ActiveRecord::Base
   protected
   def clean_content
     self.content = content.gsub('<wbr>', '')
+  end
+
+  def calculate_score
+    self.score = (like_count || 0) + (share_count || 0)
   end
 
   # private instance methods ..................................................
