@@ -31,6 +31,7 @@ class Admin::TravelsController < Admin::BaseController
 
   def set_blocked
     Travel.find(params[:id]).update(is_blocked: true)
+    TravelLog.create(travel_id: params[:id], staffer_id: current_staffer.id, action: 'blocked')
     render js: 'location.reload()'
   end
 

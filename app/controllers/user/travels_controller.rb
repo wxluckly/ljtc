@@ -3,11 +3,11 @@ class User::TravelsController < User::BaseController
   end
 
   def draft
-    @travels = current_user.travels.draft.order('id desc')
+    @travels = current_user.travels.draft.unblocked.order('id desc')
   end
 
   def done
-    @travels = current_user.travels.done.order('id desc')
+    @travels = current_user.travels.done.unblocked.order('id desc')
   end
 
   def new
@@ -51,7 +51,8 @@ class User::TravelsController < User::BaseController
 
   def destroy
     @travel = current_user.travels.find(params[:id])
-    @travel.destroy
+    @travel.update(is_blocked: true)
+    TravelLog.create(travel_id: @travel.id, staffer_id: 0, action: 'blocked')
     render js: 'location.reload();'
   end
 
