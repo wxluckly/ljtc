@@ -3,21 +3,8 @@ class Admin::CommentsController < Admin::BaseController
     @comments = Comment.order('id desc').paginate(page: params[:page])
   end
 
-  def destory
-    @comment = Comment.find(params[:id])
+  def destroy
+    Comment.find(params[:id]).destroy
+    render js: 'location.reload();'
   end
-
-  def update
-    respond_to do |format|
-      if Comment.find(params[:id]).update(comment_params)
-        format.html { redirect_to admin_comments_path }
-        format.json { render :json => @json }
-      else
-        format.html { render action: :edit }
-        format.json { render :json => @json }
-      end
-    end
-  end
-
-  private
 end

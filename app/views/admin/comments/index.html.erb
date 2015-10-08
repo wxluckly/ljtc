@@ -17,7 +17,7 @@
           <td><%= l comment.created_at %></td>
           <td><%= comment.content %></td>
           <td>
-            <%= link_to "删除", edit_admin_comment_path(comment), target: '_blank', class: 'btn' %>
+            <%= link_to "删除", admin_comment_path(comment), target: '_blank', class: 'btn', method: 'DELETE', remote: true %>
           </td>
         </tr>
         <% end %>
