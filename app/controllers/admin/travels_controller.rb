@@ -20,7 +20,8 @@ class Admin::TravelsController < Admin::BaseController
   end
 
   def rank
-    @travels = Travel.done.order(score: :desc).paginate(page: params[:page])
+    @event_id = (params[:event_id] || 1).to_i
+    @travels = Travel.where(event_id: @event_id).done.order(score: :desc).paginate(page: params[:page])
   end
 
   def set_verified

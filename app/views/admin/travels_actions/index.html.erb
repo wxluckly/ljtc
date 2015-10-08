@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="span12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>IP地址</th>
+          <th>用户机型及浏览器</th>
+          <th>用户session</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @travels_actions.each do |ta| %>
+        <tr>
+          <td><%= ta.user_ip %></td>
+          <td><%= ta.user_agent %></td>
+          <td><%= ta.session_id %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @travels, previous_label: '上一页', next_label: '下一页' %>
+  </div>
+</div>

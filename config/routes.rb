@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         get :rank
       end
     end
+    resources :travels_actions
     resources :users
   end
 end
