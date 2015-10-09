@@ -331,8 +331,9 @@
   }
   function hide()  //去除隐藏层和弹出层
   {
-     document.getElementById("hidebg").style.display="none";
-     document.getElementById("content-body").style.display="none";
+      document.getElementById("hidebg").style.display="none";
+      document.getElementById("content-body").style.display="none";
+    document.body.style.overflow='auto';
   }
   window.onload=function(){
      show();
