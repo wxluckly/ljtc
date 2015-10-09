@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :staffers
+  devise_for :staffers, controllers: { registrations: "staffers/registrations" }
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", passwords: "users/passwords" }
   
   root 'welcome#index'
