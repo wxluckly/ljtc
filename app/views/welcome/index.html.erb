@@ -241,45 +241,72 @@
   <%= render 'footer' %>
 </div>
 
+<% if cookies[:poped].blank? %>
+<% cookies[:poped] = true %>
 <!-- 弹框 -->
 <div id="hidebg"></div>
-  <div id="content-body">
-    <a id="hidebox" onClick="hide();" href="javascript:;">关闭</a>
-    <h2>关于重申本次活动规则的声明</h2>
-    <div class="m-body">
+<div id="content-body">
+  <a id="hidebox" onClick="hide();" href="javascript:;">关闭</a>
+  <h2>关于重申本次活动规则的声明</h2>
+  <div class="m-body">
+    <div>
+      <div>尊敬的用户:</div>
+      <p>
+        首先非常感谢大家参与此次“爱go，爱晒，爱分享”活动，我们也感受到了大家参与和分享的巨大热情。但同时我们也遗憾发现了一些与本次活动规则相悖的问题。为了维护本次活动的公平与公正，我们在此重申本次活动的有关规则并作出解释。
+      </p>
       <div>
-        <div>尊敬的用户:</div>
-        <p>
-          首先非常感谢大家参与此次“爱go，爱晒，爱分享”活动，我们也感受到了大家参与和分享的巨大热情。但同时我们也遗憾发现了一些与本次活动规则相悖的问题。为了维护本次活动的公平与公正，我们在此重申本次活动的有关规则并作出解释。
-        </p>
-        <div>
-          <dl>
-            <dt>第一， 我们反对参与者的任何形式的作弊行为，包括但不限于：</dt>
-            <dd>
-              （1） 同一用户或者IP地址注册多个账号，利用专业软件或者人工方法违反活动规则以获取更多票数的行为。
-            </dd>
-            <dd>
-              （2） 同一用户盗用、借用他人已有账号参与活动或者盗用、借用他人信息注册账号参与活动，提高中奖几率的行为。
-            </dd>
-            <dd>
-              （3） 恶意利用活动规则或技术漏洞刷奖的行为。
-            </dd>
-            <dd>
-              （4） 其他活动主办方有合理理由认定为作弊的行为。
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              第二，对于涉嫌作弊的用户，我们会通过多种手段进行分析和判断，一经查实，活动主办方有权在不事先通知的前提下直接删除其活动记录，取消其活动参与资格。如为获奖者，则取消获奖资格。
-            </dt>
-          </dl>
-        </div>
-        <p>
-          小伙伴们，分享攻略，分享快乐，让我们共同努力维护本次大赛的公平与公正。
-        </p>
+        <dl>
+          <dt>第一， 我们反对参与者的任何形式的作弊行为，包括但不限于：</dt>
+          <dd>
+            （1） 同一用户或者IP地址注册多个账号，利用专业软件或者人工方法违反活动规则以获取更多票数的行为。
+          </dd>
+          <dd>
+            （2） 同一用户盗用、借用他人已有账号参与活动或者盗用、借用他人信息注册账号参与活动，提高中奖几率的行为。
+          </dd>
+          <dd>
+            （3） 恶意利用活动规则或技术漏洞刷奖的行为。
+          </dd>
+          <dd>
+            （4） 其他活动主办方有合理理由认定为作弊的行为。
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            第二，对于涉嫌作弊的用户，我们会通过多种手段进行分析和判断，一经查实，活动主办方有权在不事先通知的前提下直接删除其活动记录，取消其活动参与资格。如为获奖者，则取消获奖资格。
+          </dt>
+        </dl>
       </div>
+      <p>
+        小伙伴们，分享攻略，分享快乐，让我们共同努力维护本次大赛的公平与公正。
+      </p>
     </div>
   </div>
+</div>
+<% content_for :js do %>
+<script type="text/javascript">
+  //首页弹框
+  function show()  //显示隐藏层和弹出层
+  {
+   var hideobj=document.getElementById("hidebg");
+     hidebg.style.display="block";  //显示隐藏层
+     hidebg.style.height=document.body.clientHeight+"px";  
+     document.getElementById("hidebox").style.display="block";  //显示弹出层
+     document.body.style.overflow='hidden';
+   }
+
+  function hide()  //去除隐藏层和弹出层
+  {
+    document.getElementById("hidebg").style.display="none";
+    document.getElementById("content-body").style.display="none";
+    document.body.style.overflow='auto';
+  }
+  window.onload=function(){
+    show();
+  }
+
+</script>
+<% end %>
+<% end %>
 
 <% content_for :js do %>
 <script type="text/javascript">
@@ -295,7 +322,7 @@
     });
 
     //清楚border
-      $('.left-bar .list-content > li:last-child .bottom-line1').addClass('line-clear');
+    $('.left-bar .list-content > li:last-child .bottom-line1').addClass('line-clear');
     
   }) 
 </script>
@@ -318,25 +345,5 @@
 
 </script> 
 
-<script type="text/javascript">
 
-  //首页弹框
-  function show()  //显示隐藏层和弹出层
-  {
-     var hideobj=document.getElementById("hidebg");
-     hidebg.style.display="block";  //显示隐藏层
-     hidebg.style.height=document.body.clientHeight+"px";  
-     document.getElementById("hidebox").style.display="block";  //显示弹出层
-     document.body.style.overflow='hidden';
-  }
-  function hide()  //去除隐藏层和弹出层
-  {
-      document.getElementById("hidebg").style.display="none";
-      document.getElementById("content-body").style.display="none";
-    document.body.style.overflow='auto';
-  }
-  window.onload=function(){
-     show();
-  }
-</script>
 <% end %>
