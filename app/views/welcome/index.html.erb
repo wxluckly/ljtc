@@ -78,6 +78,54 @@
             </h2>
             <div class="content">
               <ul class="list-content">
+                <% travel = Travel.find(274) %>
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="/travels/<%= travel.id %>">
+                      <%= image_tag travel.cover_url(:v210x126), width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
+                      </h3>
+                      <p class="summary">
+                        <%= travel.sentiment %>
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：<%= travel.user.nickname %></span>
+                        <span><%= travel.created_at.to_date %></span>
+                        <span class="icon-heart"><%= travel.like_count || 0 %></span>
+                        <span class="icon-share0"><%= travel.share_count || 0 %></span>
+                        <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottom-line1"></div>
+                </li>
+                <% travel = Travel.find(170) %>
+                <li>
+                  <div class="clearfix">
+                    <a class="img-content" href="/travels/<%= travel.id %>">
+                      <%= image_tag travel.cover_url(:v210x126), width: "210", height: "126" %>
+                    </a>
+                    <div class="list-description">
+                      <h3>
+                        <a href="/travels/<%= travel.id %>"><%= travel.title %></a>
+                      </h3>
+                      <p class="summary">
+                        <%= travel.sentiment %>
+                      </p>
+                      <p class="small-text clearfix">
+                        <span>作者：<%= travel.user.nickname %></span>
+                        <span><%= travel.created_at.to_date %></span>
+                        <span class="icon-heart"><%= travel.like_count || 0 %></span>
+                        <span class="icon-share0"><%= travel.share_count || 0 %></span>
+                        <span class="from">来自：<%= Travel.areas.value_label_map[travel.area_id.to_s] %> 版</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottom-line1"></div>
+                </li>
                 <% @selected_tarvels.each do |travel| %>
                 <li>
                   <div class="clearfix">
@@ -267,7 +315,7 @@
     });
 
     //清楚border
-      $('.left-bar .list-content > li:last-child .bottom-line1').addClass('line-clear');
+    $('.left-bar .list-content > li:last-child .bottom-line1').addClass('line-clear');
     
   }) 
 </script>
