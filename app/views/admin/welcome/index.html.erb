@@ -6,8 +6,10 @@
       <thead>
         <tr>
           <th>注册用户数</th>
-          <th>攻略篇数</th>
-          <th>发布攻略的人数</th>
+          <th>总攻略篇数</th>
+          <th>总攻略的人数</th>
+          <th>有效攻略篇数</th>
+          <th>有效攻略的人数</th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +17,8 @@
           <td><%= User.count %></td>
           <td><%= Travel.count %></td>
           <td><%= Travel.all.collect(&:user_id).uniq.count %></td>
+          <td><%= Travel.where(event_id: nil).where(is_blocked: 0).count %></td>
+          <td><%= Travel.where(event_id: nil).where(is_blocked: 0).collect(&:user_id).uniq.count %></td>
         </tr>
       </tbody>
     </table>
