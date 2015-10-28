@@ -1,1 +1,22 @@
-后台首页
+数据统计
+
+<div class="row">
+  <div class="span12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>注册用户数</th>
+          <th>攻略篇数</th>
+          <th>发布攻略的人数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= User.count %></td>
+          <td><%= Travel.count %></td>
+          <td><%= Travel.all.collect(&:user_id).uniq.count %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
