@@ -20,8 +20,13 @@ class Admin::TravelsController < Admin::BaseController
   end
 
   def rank
-    @event_id = (params[:event_id] || 1).to_i
-    @travels = Travel.where(event_id: @event_id).done.order(score: :desc).paginate(page: params[:page])
+    if params[:event_id].present?
+      @event_id = (params[:event_id] || 1).to_i
+      @travels = Travel.where(event_id: @event_id).done.order(score: :desc).paginate(page: params[:page])
+    else
+      @event_id = nil
+      @travels = Travel.where(event_id: nil).where(is_blocked: 0).order(score: :desc).paginate(page: params[:page])
+    end
   end
 
   def set_verified
