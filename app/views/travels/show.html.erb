@@ -31,9 +31,10 @@
         <div class="mark-right">
           <div class="clearfix">
             <a class="target-addr" href="javascript:;"><%= Travel.areas.value_label_map[@travel.area_id.to_s] %></a>
-            <a href="javascript:void(0);" id='liked_travel' class="like active" <% unless liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
-            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like" <% if liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
-            <a class="share" href="javascript:void(0);" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a>
+            <a href="javascript:void(0);" id='liked_travel' class="like active" <% unless true || liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <a href="javascript:void(0);" id='like_travel' data-id='<%= @travel.id %>' class="like" <% if true || liked?(@travel.id) %>style="display: none;"<% end %>>喜欢<em><%= @travel.like_count || 0 %></em></a>
+            <!-- <a class="share" href="javascript:void(0);" onclick="click_share();">分享<em><%= @travel.share_count || 0 %></em></a> -->
+            <a class="share" href="javascript:void(0);">分享<em><%= @travel.share_count || 0 %></em></a>
           </div>
         </div>
       </div>
