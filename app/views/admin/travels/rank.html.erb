@@ -14,6 +14,7 @@
       <thead>
         <tr>
           <th>标题</th>
+          <th>去除作弊分</th>
           <th>综合分</th>
           <th>喜欢数</th>
           <th>分享数</th>
@@ -27,6 +28,7 @@
         <% @travels.each do |travel| %>
         <tr>
           <td><a href="/admin/travels_actions?travel_id=<%= travel.id %>" target="_blank"><%= travel.title %></a></td>
+          <td><%= travel.clean_score %></td>
           <td><%= travel.score %></td>
           <td><%= travel.like_count %></td>
           <td><%= travel.share_count %></td>
